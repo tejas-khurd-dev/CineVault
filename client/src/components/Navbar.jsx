@@ -37,7 +37,11 @@ const Navbar = () => {
                 !user ? (
                     <button onClick={openSignIn} className='rounded-2xl bg-primary px-4 md:px-5 py-1 text-lg'>Login</button>
                 ): (
-                    <UserButton>
+                    <UserButton appearance={{
+                        elements: {
+                            userButtonAvatarBox:  "w-8! h-8! md:w-10! md:h-10!",
+                        }
+                    }}>
                         <UserButton.MenuItems>
                             <UserButton.Action label='My Bookings' labelIcon={<Ticket size={16} />} onClick={()=>navigate('/mybookings')}/>
                         </UserButton.MenuItems>
