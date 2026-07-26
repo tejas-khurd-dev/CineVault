@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
         
 
-        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 border border-white/20 hidden mr-6'>
+        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 border border-white/20 hidden mr-20'>
             <Link to='/'>Home</Link>
             <Link to='/movies'>Movies</Link>
             <Link to='/favourite'>Favourite</Link>

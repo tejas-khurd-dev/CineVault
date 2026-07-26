@@ -9,11 +9,12 @@
 * {
     font-family: "Outfit", sans-serif;
     scrollbar-width: thin;
-    scrollbar-color: #787777 #1e1e1e;
+    scrollbar-color: #811528 #1e1e1e;
 }
 
 body{
     color: white;
     background-color: #09090B;
+    cursor: url("/cursor.png") 0 0, auto;
 }
 
