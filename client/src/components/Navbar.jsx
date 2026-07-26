@@ -15,7 +15,7 @@ const Navbar = () => {
     const navigate = useNavigate()
 
   return (
-    <div className='fixed top-0 left-0 z-100 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-6'>
+    <div className='fixed top-0 left-0 z-100 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 pt-5 bg-gradient-to-r from-[#000000] via-transparent to-transparent'>
         
         <Link to='/'>
             <img src={assets.logo} alt="logo" className='w-72 h-auto'/>

@@ -23,7 +23,7 @@ const HeroSection = () => {
                 <div className='flex justify-between items-center gap-3'>
                     <Clock /> <span>2h 15m</span>
                 </div>
-            </div>
+            </div> 
         </div>
 
         <p className='text-gray-300 py-3 '>In their final and most terrifying case, <br />Ed and Lorraine Warren confront an ancient evil that  <br />  threatens  to consume every soul.</p>
