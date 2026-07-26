@@ -25,6 +25,7 @@ const Navbar = () => {
         <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 border border-white/20 hidden mr-20'>
             <Link to='/'>Home</Link>
             <Link to='/movies'>Movies</Link>
+            <Link to='/'>About</Link>
             <Link to='/favourite'>Favourite</Link>
             <Link to='/'>Releases</Link>
         </div>
@@ -61,6 +62,7 @@ const Navbar = () => {
             <div className='flex flex-col items-center justify-between space-y-8 absolute left-10'>
                 <Link to='/'>Home</Link>
                 <Link to='/movies'>Movies</Link>
+                <Link to='/'>About</Link>
                 <Link to='/favourite'>Favourite</Link>
                 <Link to='/'>Releases</Link>
             </div>

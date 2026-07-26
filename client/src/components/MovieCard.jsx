@@ -18,9 +18,9 @@ const MovieCard = ({movie}) => {
         </p>
 
         <div className='flex justify-between items-center gap-4 '>
-            <button onClick={()=>navigate(`/movies/${movie._id}`)} className='bg-primary mt-2 px-2 py-2 rounded-2xl text-sm flex justify-between items-center gap-1 cursor-pointer' > Buy Tickets</button>
+            <button onClick={()=>navigate(`/moviedetails/${movie._id}`)} className='bg-primary mt-2 px-2 py-2 rounded-2xl text-sm flex justify-between items-center gap-1 cursor-pointer' > Buy Tickets</button>
             <p className='flex justify-between items-center gap-2 text-gray-400'>
-                <StarIcon className='text-primary'/> {movie.vote_average.toFixed(1)}
+                <StarIcon className='text-primary fill-primary'/> {movie.vote_average.toFixed(1)}
             </p>
         </div>
     </div>

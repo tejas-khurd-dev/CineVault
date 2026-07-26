@@ -25,7 +25,7 @@ const TrailerSection = () => {
 
         <div className='grid grid-cols-4 mx-auto w-4xl gap-4 mt-3'>
           {dummyTrailers.map((i)=>(
-            <div keys={i} className='relative' onClick={()=>setCurrentTrailer(i)}>
+            <div key={i._id} className='relative' onClick={()=>setCurrentTrailer(i)}>
               <img src={i.image} alt=""  className='rounded-2xl'/>
               <PlayCircle className='absolute top-1/2 left-1/2 -transition-x-1/2 -transition-y-1/2'/>
             </div>

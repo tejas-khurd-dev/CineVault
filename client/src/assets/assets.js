@@ -18,18 +18,22 @@ export const assets = {
 
 export const dummyTrailers = [
     {
+        _id:1121,
         image: "https://i.ytimg.com/vi/bMgfsdYoEEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAzkjXGritL5Hwn5CGtWsHbq2ItTg",
         videoUrl: 'https://youtu.be/bMgfsdYoEEo?si=XScxH4o-NN6PR9TG'
     },
     {
+        _id:1122,
         image: "https://i.pinimg.com/736x/2d/1e/49/2d1e49e0aa4b7a82f9560f8aaffb5a00.jpg",
         videoUrl: 'https://youtu.be/3zOLzsbOleM?si=EsES6t-wqVv7MoYe'
     },
     {
+        _id:1123,
         image: "https://i.ytimg.com/vi/ggZA2oi8S5s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB7kLhDMURB36ybQLoPThlBDFwVng",
         videoUrl: 'https://youtu.be/ggZA2oi8S5s?si=OlGjx5qsEaop_6D_'
     },
     {
+        _id:1124,
         image: "https://i.ytimg.com/vi/IhgcUArO3Uo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDAmFHuhWkqASnA8Sx5e1WJag3rUg",
         videoUrl: 'https://youtu.be/IhgcUArO3Uo?si=nf4p4ooBDewbU2IR'
     },
@@ -230,7 +234,7 @@ export const dummyShowsData = [
         "id": 4234567,
         "title": "Michael",
         "overview": "A sweeping biopic tracing the rise of a music icon from a childhood in Gary, Indiana to becoming one of the most influential entertainers of all time, exploring the triumphs and turmoil behind the spotlight.",
-        "poster_path": "https://i.pinimg.com/736x/2a/a6/09/2aa60970a91f1d0a62e5330314ca9382.jpg",
+        "poster_path": "https://i.pinimg.com/736x/15/f7/6b/15f76b8549b9d65d071e3db944169a21.jpg",
         "backdrop_path": "https://i.pinimg.com/736x/e1/f8/38/e1f838655bdbfedffba710fd42a0d89d.jpg",
         "genres": [
             { "id": 18, "name": "Drama" },
@@ -439,9 +443,9 @@ export const dummyShowsData = [
         "release_date": "2026-12-18",
         "original_language": "en",
         "tagline": "Worlds will collide.",
-        "vote_average": 0,
-        "vote_count": 0,
-        "runtime": 0,
+        "vote_average": 8.4,
+        "vote_count": 8022,
+        "runtime": 110,
     },
 ]
 

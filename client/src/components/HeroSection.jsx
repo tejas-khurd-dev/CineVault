@@ -8,7 +8,7 @@ const HeroSection = () => {
     const navigate = useNavigate()
 
   return (
-    <div className='bg-[url("/backgroundImage.png")] bg-cover bg-center h-screen flex flex-col justify-center items-start px-22 gap-2'>
+    <div className='bg-[url("/backgroundImage.jpg")] bg-cover bg-center h-screen flex flex-col justify-center items-start px-22 gap-2'>
         
         <img src={assets.theConjuringLogo} alt="" className='w-80 mt-5' />
 
