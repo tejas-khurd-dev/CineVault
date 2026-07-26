@@ -18,42 +18,150 @@ export const assets = {
 
 export const dummyTrailers = [
     {
-        image: "https://img.youtube.com/vi/WpW36ldAqnM/maxresdefault.jpg",
-        videoUrl: 'https://www.youtube.com/watch?v=WpW36ldAqnM'
+        image: "https://i.ytimg.com/vi/bMgfsdYoEEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAzkjXGritL5Hwn5CGtWsHbq2ItTg",
+        videoUrl: 'https://youtu.be/bMgfsdYoEEo?si=XScxH4o-NN6PR9TG'
     },
     {
-        image: "https://img.youtube.com/vi/-sAOWhvheK8/maxresdefault.jpg",
-        videoUrl: 'https://www.youtube.com/watch?v=-sAOWhvheK8'
+        image: "https://i.pinimg.com/736x/2d/1e/49/2d1e49e0aa4b7a82f9560f8aaffb5a00.jpg",
+        videoUrl: 'https://youtu.be/3zOLzsbOleM?si=EsES6t-wqVv7MoYe'
     },
     {
-        image: "https://img.youtube.com/vi/1pHDWnXmK7Y/maxresdefault.jpg",
-        videoUrl: 'https://www.youtube.com/watch?v=1pHDWnXmK7Y'
+        image: "https://i.ytimg.com/vi/ggZA2oi8S5s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB7kLhDMURB36ybQLoPThlBDFwVng",
+        videoUrl: 'https://youtu.be/ggZA2oi8S5s?si=OlGjx5qsEaop_6D_'
     },
     {
-        image: "https://img.youtube.com/vi/umiKiW4En9g/maxresdefault.jpg",
-        videoUrl: 'https://www.youtube.com/watch?v=umiKiW4En9g'
+        image: "https://i.ytimg.com/vi/IhgcUArO3Uo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDAmFHuhWkqASnA8Sx5e1WJag3rUg",
+        videoUrl: 'https://youtu.be/IhgcUArO3Uo?si=nf4p4ooBDewbU2IR'
     },
 ]
 
-const dummyCastsData = [
-    { "name": "Milla Jovovich", "profile_path": "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg", },
-    { "name": "Dave Bautista", "profile_path": "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg", },
-    { "name": "Arly Jover", "profile_path": "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg", },
-    { "name": "Amara Okereke", "profile_path": "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg", },
-    { "name": "Fraser James", "profile_path": "https://image.tmdb.org/t/p/original/mGAPQG2OKTgdKFkp9YpvCSqcbgY.jpg", },
-    { "name": "Deirdre Mullins", "profile_path": "https://image.tmdb.org/t/p/original/lJm89neuiVlYISEqNpGZA5kTAnP.jpg", },
-    { "name": "Sebastian Stankiewicz", "profile_path": "https://image.tmdb.org/t/p/original/hLN0Ca09KwQOFLZLPIEzgTIbqqg.jpg", },
-    { "name": "Tue Lunding", "profile_path": "https://image.tmdb.org/t/p/original/qY4W0zfGBYzlCyCC0QDJS1Muoa0.jpg", },
-    { "name": "Jacek Dzisiewicz", "profile_path": "https://image.tmdb.org/t/p/original/6Ksb8ANhhoWWGnlM6O1qrySd7e1.jpg", },
-    { "name": "Ian Hanmore", "profile_path": "https://image.tmdb.org/t/p/original/yhI4MK5atavKBD9wiJtaO1say1p.jpg", },
-    { "name": "Eveline Hall", "profile_path": "https://image.tmdb.org/t/p/original/uPq4xUPiJIMW5rXF9AT0GrRqgJY.jpg", },
-    { "name": "Kamila Klamut", "profile_path": "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg", },
-    { "name": "Caoilinn Springall", "profile_path": "https://image.tmdb.org/t/p/original/uZNtbPHowlBYo74U1qlTaRlrdiY.jpg", },
-    { "name": "Jan Kowalewski", "profile_path": "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg", },
-    { "name": "Pawel Wysocki", "profile_path": "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg", },
-    { "name": "Simon Lööf", "profile_path": "https://image.tmdb.org/t/p/original/cbZrB8crWlLEDjVUoak8Liak6s.jpg", },
-    { "name": "Tomasz Cymerman", "profile_path": "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg", }
-]
+export const dummyCastsData = {
+  // Spider-Man: Brand New Day
+  1234567: [
+    { id: 101, name: "Tom Ellery", character: "Peter Parker / Spider-Man", profile_path: "https://i.pravatar.cc/300?img=11" },
+    { id: 102, name: "Maya Whitfield", character: "Ally Reyes", profile_path: "https://i.pravatar.cc/300?img=12" },
+    { id: 103, name: "Daniel Cho", character: "The Rook", profile_path: "https://i.pravatar.cc/300?img=13" },
+    { id: 104, name: "Priya Anand", character: "Aunt May", profile_path: "https://i.pravatar.cc/300?img=14" },
+    { id: 105, name: "Marcus Bell", character: "Detective Hollis", profile_path: "https://i.pravatar.cc/300?img=15" },
+  ],
+ 
+  // The Super Mario Galaxy Movie
+  2234567: [
+    { id: 201, name: "Rio Alvarez", character: "Mario (voice)", profile_path: "https://i.pravatar.cc/300?img=21" },
+    { id: 202, name: "Ben Foster", character: "Luigi (voice)", profile_path: "https://i.pravatar.cc/300?img=22" },
+    { id: 203, name: "Elena Marsh", character: "Princess Peach (voice)", profile_path: "https://i.pravatar.cc/300?img=23" },
+    { id: 204, name: "Grant Osei", character: "Bowser (voice)", profile_path: "https://i.pravatar.cc/300?img=24" },
+    { id: 205, name: "Nadia Kim", character: "Rosalina (voice)", profile_path: "https://i.pravatar.cc/300?img=25" },
+  ],
+ 
+  // Project Hail Mary
+  3234567: [
+    { id: 301, name: "Owen Prescott", character: "Ryland Grace", profile_path: "https://i.pravatar.cc/300?img=31" },
+    { id: 302, name: "Sasha Renner", character: "Dr. Eva Stratt", profile_path: "https://i.pravatar.cc/300?img=32" },
+    { id: 303, name: "Wei Chen", character: "Rocky (voice)", profile_path: "https://i.pravatar.cc/300?img=33" },
+    { id: 304, name: "Louis Marchetti", character: "Commander Yao", profile_path: "https://i.pravatar.cc/300?img=34" },
+    { id: 305, name: "Grace Muthoni", character: "Dr. Lokken", profile_path: "https://i.pravatar.cc/300?img=35" },
+  ],
+ 
+  // Michael
+  4234567: [
+    { id: 401, name: "Jordan Blake", character: "Michael", profile_path: "https://i.pravatar.cc/300?img=41" },
+    { id: 402, name: "Denise Carrow", character: "Katherine", profile_path: "https://i.pravatar.cc/300?img=42" },
+    { id: 403, name: "Victor Amaro", character: "Joseph", profile_path: "https://i.pravatar.cc/300?img=43" },
+    { id: 404, name: "Simone Bailey", character: "Janet", profile_path: "https://i.pravatar.cc/300?img=44" },
+    { id: 405, name: "Elliot Marsh", character: "Manager Reeves", profile_path: "https://i.pravatar.cc/300?img=45" },
+  ],
+ 
+  // The Devil Wears Prada 2
+  5234567: [
+    { id: 501, name: "Claire Donovan", character: "Andy Sachs", profile_path: "https://i.pravatar.cc/300?img=51" },
+    { id: 502, name: "Vivian Hart", character: "Miranda Priestly", profile_path: "https://i.pravatar.cc/300?img=52" },
+    { id: 503, name: "Nate Ferris", character: "Nate", profile_path: "https://i.pravatar.cc/300?img=53" },
+    { id: 504, name: "Isabelle Roux", character: "Emily Charlton", profile_path: "https://i.pravatar.cc/300?img=54" },
+    { id: 505, name: "Theo Winslow", character: "Nigel", profile_path: "https://i.pravatar.cc/300?img=55" },
+  ],
+ 
+  // The Mandalorian and Grogu
+  6234567: [
+    { id: 601, name: "Pedro Salinas", character: "Din Djarin", profile_path: "https://i.pravatar.cc/300?img=61" },
+    { id: 602, name: "Katee Rowan", character: "Bo-Katan", profile_path: "https://i.pravatar.cc/300?img=62" },
+    { id: 603, name: "Werner Holt", character: "Moff Aldric", profile_path: "https://i.pravatar.cc/300?img=63" },
+    { id: 604, name: "Amara Diallo", character: "Captain Teva", profile_path: "https://i.pravatar.cc/300?img=64" },
+    { id: 605, name: "N/A", character: "Grogu", profile_path: "https://i.pravatar.cc/300?img=65" },
+  ],
+ 
+  // Scream 7
+  7234567: [
+    { id: 701, name: "Neve Ashby", character: "Sidney's Niece", profile_path: "https://i.pravatar.cc/300?img=71" },
+    { id: 702, name: "Courtland Myers", character: "Dewey Jr.", profile_path: "https://i.pravatar.cc/300?img=72" },
+    { id: 703, name: "Jenna Pruitt", character: "Sam Carpenter", profile_path: "https://i.pravatar.cc/300?img=73" },
+    { id: 704, name: "David Okafor", character: "Deputy Hicks", profile_path: "https://i.pravatar.cc/300?img=74" },
+    { id: 705, name: "Melissa Trent", character: "Gale Weathers", profile_path: "https://i.pravatar.cc/300?img=75" },
+  ],
+ 
+  // Wuthering Heights
+  8234567: [
+    { id: 801, name: "Florence Ainsley", character: "Catherine Earnshaw", profile_path: "https://i.pravatar.cc/300?img=1" },
+    { id: 802, name: "CallumReid", character: "Heathcliff", profile_path: "https://i.pravatar.cc/300?img=2" },
+    { id: 803, name: "Margot Fenwick", character: "Isabella Linton", profile_path: "https://i.pravatar.cc/300?img=3" },
+    { id: 804, name: "Julian Ashcombe", character: "Edgar Linton", profile_path: "https://i.pravatar.cc/300?img=4" },
+    { id: 805, name: "Rose Kellerman", character: "Nelly Dean", profile_path: "https://i.pravatar.cc/300?img=5" },
+  ],
+ 
+  // Hoppers
+  9234567: [
+    { id: 901, name: "Ivy Sandoval", character: "Mabel (voice)", profile_path: "https://i.pravatar.cc/300?img=6" },
+    { id: 902, name: "Aaron Delgado", character: "Ranger Cole (voice)", profile_path: "https://i.pravatar.cc/300?img=7" },
+    { id: 903, name: "Fiona Marsh", character: "Bristle the Beaver (voice)", profile_path: "https://i.pravatar.cc/300?img=8" },
+    { id: 904, name: "Trevor Nash", character: "Otis (voice)", profile_path: "https://i.pravatar.cc/300?img=9" },
+    { id: 905, name: "Wanda Iyer", character: "Developer Hargrove (voice)", profile_path: "https://i.pravatar.cc/300?img=10" },
+  ],
+ 
+  // Goat
+  10234567: [
+    { id: 1001, name: "Milo Anders", character: "Billy the Goat (voice)", profile_path: "https://i.pravatar.cc/300?img=16" },
+    { id: 1002, name: "Renee Ostrow", character: "Coach Buck (voice)", profile_path: "https://i.pravatar.cc/300?img=17" },
+    { id: 1003, name: "Desmond Cruz", character: "Rocco the Rhino (voice)", profile_path: "https://i.pravatar.cc/300?img=18" },
+    { id: 1004, name: "Tanya Blume", character: "Nanny (voice)", profile_path: "https://i.pravatar.cc/300?img=19" },
+    { id: 1005, name: "Percy Wade", character: "Announcer Flint (voice)", profile_path: "https://i.pravatar.cc/300?img=20" },
+  ],
+ 
+  // Zootopia 2
+  11234567: [
+    { id: 1101, name: "Ginnifer Voss", character: "Judy Hopps (voice)", profile_path: "https://i.pravatar.cc/300?img=26" },
+    { id: 1102, name: "Marlon Reyes", character: "Nick Wilde (voice)", profile_path: "https://i.pravatar.cc/300?img=27" },
+    { id: 1103, name: "Della Huang", character: "Chief Bogo (voice)", profile_path: "https://i.pravatar.cc/300?img=28" },
+    { id: 1104, name: "Simeon Ortiz", character: "Gary De'Snake (voice)", profile_path: "https://i.pravatar.cc/300?img=29" },
+    { id: 1105, name: "Harriet Combs", character: "Mayor Winters (voice)", profile_path: "https://i.pravatar.cc/300?img=30" },
+  ],
+ 
+  // Avatar: Fire and Ash
+  12234567: [
+    { id: 1201, name: "Samuel Ridgeway", character: "Jake Sully", profile_path: "https://i.pravatar.cc/300?img=36" },
+    { id: 1202, name: "Zoya Merrick", character: "Neytiri", profile_path: "https://i.pravatar.cc/300?img=37" },
+    { id: 1203, name: "Bram Castellan", character: "Varang, Ash Clan Leader", profile_path: "https://i.pravatar.cc/300?img=38" },
+    { id: 1204, name: "Kiona Marsh", character: "Kiri", profile_path: "https://i.pravatar.cc/300?img=39" },
+    { id: 1205, name: "Peter Alden", character: "Colonel Quaritch", profile_path: "https://i.pravatar.cc/300?img=40" },
+  ],
+ 
+  // The Bride!
+  13234567: [
+    { id: 1301, name: "Odette Marchand", character: "The Bride", profile_path: "https://i.pravatar.cc/300?img=46" },
+    { id: 1302, name: "Corbin Wexley", character: "The Creature", profile_path: "https://i.pravatar.cc/300?img=47" },
+    { id: 1303, name: "Alastair Doyle", character: "Dr. Volker", profile_path: "https://i.pravatar.cc/300?img=48" },
+    { id: 1304, name: "Marguerite Snow", character: "Lucille", profile_path: "https://i.pravatar.cc/300?img=49" },
+    { id: 1305, name: "Hollis Grant", character: "Detective Marsh", profile_path: "https://i.pravatar.cc/300?img=50" },
+  ],
+ 
+  // Avengers: Doomsday
+  15234567: [
+    { id: 1501, name: "Dominic Farrow", character: "Captain America", profile_path: "https://i.pravatar.cc/300?img=56" },
+    { id: 1502, name: "Alina Petrov", character: "Scarlet Witch", profile_path: "https://i.pravatar.cc/300?img=57" },
+    { id: 1503, name: "Curtis Vane", character: "Doctor Doom", profile_path: "https://i.pravatar.cc/300?img=58" },
+    { id: 1504, name: "Naomi Ellsworth", character: "Storm", profile_path: "https://i.pravatar.cc/300?img=59" },
+    { id: 1505, name: "Reggie Osborne", character: "Wolverine", profile_path: "https://i.pravatar.cc/300?img=60" },
+  ],
+};
 
 export const dummyShowsData = [
     {
@@ -258,23 +366,22 @@ export const dummyShowsData = [
     {
         "_id": "11234567",
         "id": 11234567,
-        "title": "Zootopia 2",
-        "overview": "Newly minted partners Judy Hopps and Nick Wilde find their friendship strained by clashing styles as they chase down the city's first-ever snake resident, whose mysterious arrival threatens to unravel Zootopia's fragile harmony.",
-        "poster_path": "https://i.pinimg.com/1200x/fb/fc/d9/fbfcd980c25b2414636def15df488601.jpg",
-        "backdrop_path": "https://i.pinimg.com/736x/cb/36/ce/cb36cecfc045a33fd58deb2da805ddb2.jpg",
+        "title": "The Conjuring: Last Rites",
+        "overview": "Paranormal investigators Ed and Lorraine Warren are drawn into one final terrifying case when an abandoned chapel becomes the center of a series of unexplained deaths. As an ancient evil awakens, the Warrens must confront their darkest fears to stop a malevolent force before it claims countless innocent souls.",
+        "poster_path": "https://i.pinimg.com/736x/28/ce/42/28ce42fad7f20b0f80f50e00fecb449c.jpg",
+        "backdrop_path": "https://i.pinimg.com/736x/6f/43/8b/6f438b94cf6ab2fd24fd991d0e3a6d96.jpg",
         "genres": [
-            { "id": 16, "name": "Animation" },
-            { "id": 28, "name": "Action" },
-            { "id": 12, "name": "Adventure" },
-            { "id": 35, "name": "Comedy" }
+            { "id": 27, "name": "Horror" },
+            { "id": 53, "name": "Thriller" },
+            { "id": 9648, "name": "Mystery" }
         ],
         "casts": dummyCastsData,
-        "release_date": "2025-11-26",
+        "release_date": "2025-09-05",
         "original_language": "en",
-        "tagline": "The city never sleeps, and neither does the case.",
-        "vote_average": 7.4,
-        "vote_count": 17800,
-        "runtime": 108,
+        "tagline": "Every blessing has its final prayer.",
+        "vote_average": 8.1,
+        "vote_count": 24560,
+        "runtime": 112
     },
     {
         "_id": "12234567",
@@ -337,6 +444,7 @@ export const dummyShowsData = [
         "runtime": 0,
     },
 ]
+
 export const dummyDateTimeData = {
     "2025-07-24": [
         { "time": "2025-07-24T01:00:00.000Z", "showId": "68395b407f6329be2bb45bd1" },

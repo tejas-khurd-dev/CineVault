@@ -26,7 +26,7 @@ const FeaturedSection = () => {
             {dummyShowsData.slice(4,8).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
         </div>
   
-        <div className='flex justify-center items-center mt-8'>
+        <div className='flex justify-center items-center mt-12'>
             <button onClick={()=>navigate("/movies")} className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Show More</button>
         </div>
     </div>
