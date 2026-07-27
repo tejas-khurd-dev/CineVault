@@ -6,7 +6,7 @@ import BlurCircle from '../components/BlurCircle'
 const Movies = () => {
   return dummyShowsData.length > 0 ? (
     <div className='pt-35 pb-5'>
-      <h1 className='text-xl font-bold text-gray-300 ml-40'>Now Showing</h1>\
+      <h1 className='text-xl font-bold text-gray-300 ml-40'>Now Showing</h1>
       <BlurCircle top='18rem'/>
       <BlurCircle top='40rem' right='2rem'/>
       <BlurCircle bottom='-50rem' left='6rem'/>

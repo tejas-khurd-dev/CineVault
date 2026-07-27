@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { dummyDateTimeData, dummyShowsData } from '../assets/assets'
+import { useNavigate, useParams } from 'react-router-dom'
+import { dummyCastsData, dummyDateTimeData, dummyShowsData } from '../assets/assets'
 import { HeartIcon, StarIcon } from 'lucide-react'
 import timeFormat from '../lib/timeFormat'
 import BlurCircle from '../components/BlurCircle'
+import MovieCard from '../components/MovieCard'
+import DateSelection from '../components/DateSelection'
 
 const MovieDetails = () => {
   const {id} = useParams()
+
+  const navigate = useNavigate()
+
   const [Show, setShow] = useState(null)
 
   const getShow = async ()=> {
@@ -46,6 +51,35 @@ const MovieDetails = () => {
               <HeartIcon className="w-5 h-5" />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 className='text-xl font-bold text-white/90 [word-spacing:2px] px-40 pt-30'>Your Favourite Cast</h3>
+        <div className='flex gap-10 overflow-x-auto items-center no-scrollbar px-50 py-12 '>
+          {dummyCastsData[id].map((cast) => (
+            <div className='flex flex-col items-center text-gray-400 font-medium space-y-3'>
+              <img key={cast.id} src={cast.profile_path}alt={cast.name} className='rounded-full w-30 h-30 object-cover shadow-[0_0_20px_rgba(239,68,68,0.6)]' />
+              <p className='mx-auto'>{cast.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className='relative'>
+        <DateSelection/>
+      </div>
+      
+
+
+      <div>
+        <h3 className='text-xl font-bold text-white/90 [word-spacing:2px] px-40 pt-30'>You May Also like</h3>
+        <div className='flex flex-wrap justify-start items-center gap-2 pt-4 px-50'>
+            {dummyShowsData.slice(`${dummyShowsData.length-5}`,`${dummyShowsData.length}`).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
+        </div>
+
+        <div className='flex justify-center items-center mt-12'>
+            <button onClick={()=>{navigate("/movies"); scroll(0, 0);}} className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Show More</button>
         </div>
       </div>
     </div>

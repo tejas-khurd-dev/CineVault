@@ -42,128 +42,127 @@ export const dummyTrailers = [
 export const dummyCastsData = {
   // Spider-Man: Brand New Day
   1234567: [
-    { id: 101, name: "Tom Ellery", character: "Peter Parker / Spider-Man", profile_path: "https://i.pravatar.cc/300?img=11" },
-    { id: 102, name: "Maya Whitfield", character: "Ally Reyes", profile_path: "https://i.pravatar.cc/300?img=12" },
-    { id: 103, name: "Daniel Cho", character: "The Rook", profile_path: "https://i.pravatar.cc/300?img=13" },
-    { id: 104, name: "Priya Anand", character: "Aunt May", profile_path: "https://i.pravatar.cc/300?img=14" },
-    { id: 105, name: "Marcus Bell", character: "Detective Hollis", profile_path: "https://i.pravatar.cc/300?img=15" },
+    { id: 101, name: "Tom Ellery", character: "Peter Parker / Spider-Man", profile_path: "https://i.pinimg.com/736x/fa/07/50/fa07506646e45a084d235691f389b01c.jpg" },
+    { id: 102, name: "Maya Whitfield", character: "Ally Reyes", profile_path: "https://i.pinimg.com/1200x/76/b8/84/76b884a103dee9ae1ccf931a9be75c94.jpg" },
+    { id: 103, name: "Daniel Cho", character: "The Rook", profile_path: "https://randomuser.me/api/portraits/men/2.jpg" },
+    { id: 104, name: "Priya Anand", character: "Aunt May", profile_path: "https://randomuser.me/api/portraits/women/2.jpg" },
+    { id: 105, name: "Marcus Bell", character: "Detective Hollis", profile_path: "https://randomuser.me/api/portraits/men/3.jpg" },
   ],
- 
+
   // The Super Mario Galaxy Movie
   2234567: [
-    { id: 201, name: "Rio Alvarez", character: "Mario (voice)", profile_path: "https://i.pravatar.cc/300?img=21" },
-    { id: 202, name: "Ben Foster", character: "Luigi (voice)", profile_path: "https://i.pravatar.cc/300?img=22" },
-    { id: 203, name: "Elena Marsh", character: "Princess Peach (voice)", profile_path: "https://i.pravatar.cc/300?img=23" },
-    { id: 204, name: "Grant Osei", character: "Bowser (voice)", profile_path: "https://i.pravatar.cc/300?img=24" },
-    { id: 205, name: "Nadia Kim", character: "Rosalina (voice)", profile_path: "https://i.pravatar.cc/300?img=25" },
+    { id: 201, name: "Rio Alvarez", character: "Mario (voice)", profile_path: "https://randomuser.me/api/portraits/men/4.jpg" },
+    { id: 202, name: "Ben Foster", character: "Luigi (voice)", profile_path: "https://randomuser.me/api/portraits/men/5.jpg" },
+    { id: 203, name: "Elena Marsh", character: "Princess Peach (voice)", profile_path: "https://randomuser.me/api/portraits/women/3.jpg" },
+    { id: 204, name: "Grant Osei", character: "Bowser (voice)", profile_path: "https://randomuser.me/api/portraits/men/6.jpg" },
+    { id: 205, name: "Nadia Kim", character: "Rosalina (voice)", profile_path: "https://randomuser.me/api/portraits/women/4.jpg" },
   ],
- 
+
   // Project Hail Mary
   3234567: [
-    { id: 301, name: "Owen Prescott", character: "Ryland Grace", profile_path: "https://i.pravatar.cc/300?img=31" },
-    { id: 302, name: "Sasha Renner", character: "Dr. Eva Stratt", profile_path: "https://i.pravatar.cc/300?img=32" },
-    { id: 303, name: "Wei Chen", character: "Rocky (voice)", profile_path: "https://i.pravatar.cc/300?img=33" },
-    { id: 304, name: "Louis Marchetti", character: "Commander Yao", profile_path: "https://i.pravatar.cc/300?img=34" },
-    { id: 305, name: "Grace Muthoni", character: "Dr. Lokken", profile_path: "https://i.pravatar.cc/300?img=35" },
+    { id: 301, name: "Owen Prescott", character: "Ryland Grace", profile_path: "https://randomuser.me/api/portraits/men/7.jpg" },
+    { id: 302, name: "Sasha Renner", character: "Dr. Eva Stratt", profile_path: "https://randomuser.me/api/portraits/women/5.jpg" },
+    { id: 303, name: "Wei Chen", character: "Rocky (voice)", profile_path: "https://randomuser.me/api/portraits/men/8.jpg" },
+    { id: 304, name: "Louis Marchetti", character: "Commander Yao", profile_path: "https://randomuser.me/api/portraits/men/9.jpg" },
+    { id: 305, name: "Grace Muthoni", character: "Dr. Lokken", profile_path: "https://randomuser.me/api/portraits/women/6.jpg" },
   ],
- 
+
   // Michael
   4234567: [
-    { id: 401, name: "Jordan Blake", character: "Michael", profile_path: "https://i.pravatar.cc/300?img=41" },
-    { id: 402, name: "Denise Carrow", character: "Katherine", profile_path: "https://i.pravatar.cc/300?img=42" },
-    { id: 403, name: "Victor Amaro", character: "Joseph", profile_path: "https://i.pravatar.cc/300?img=43" },
-    { id: 404, name: "Simone Bailey", character: "Janet", profile_path: "https://i.pravatar.cc/300?img=44" },
-    { id: 405, name: "Elliot Marsh", character: "Manager Reeves", profile_path: "https://i.pravatar.cc/300?img=45" },
+    { id: 401, name: "Jordan Blake", character: "Michael", profile_path: "https://randomuser.me/api/portraits/men/10.jpg" },
+    { id: 402, name: "Denise Carrow", character: "Katherine", profile_path: "https://randomuser.me/api/portraits/women/7.jpg" },
+    { id: 403, name: "Victor Amaro", character: "Joseph", profile_path: "https://randomuser.me/api/portraits/men/11.jpg" },
+    { id: 404, name: "Simone Bailey", character: "Janet", profile_path: "https://randomuser.me/api/portraits/women/8.jpg" },
+    { id: 405, name: "Elliot Marsh", character: "Manager Reeves", profile_path: "https://randomuser.me/api/portraits/men/12.jpg" },
   ],
- 
+
   // The Devil Wears Prada 2
   5234567: [
-    { id: 501, name: "Claire Donovan", character: "Andy Sachs", profile_path: "https://i.pravatar.cc/300?img=51" },
-    { id: 502, name: "Vivian Hart", character: "Miranda Priestly", profile_path: "https://i.pravatar.cc/300?img=52" },
-    { id: 503, name: "Nate Ferris", character: "Nate", profile_path: "https://i.pravatar.cc/300?img=53" },
-    { id: 504, name: "Isabelle Roux", character: "Emily Charlton", profile_path: "https://i.pravatar.cc/300?img=54" },
-    { id: 505, name: "Theo Winslow", character: "Nigel", profile_path: "https://i.pravatar.cc/300?img=55" },
+    { id: 501, name: "Claire Donovan", character: "Andy Sachs", profile_path: "https://randomuser.me/api/portraits/women/9.jpg" },
+    { id: 502, name: "Vivian Hart", character: "Miranda Priestly", profile_path: "https://randomuser.me/api/portraits/women/10.jpg" },
+    { id: 503, name: "Nate Ferris", character: "Nate", profile_path: "https://randomuser.me/api/portraits/men/13.jpg" },
+    { id: 504, name: "Isabelle Roux", character: "Emily Charlton", profile_path: "https://randomuser.me/api/portraits/women/11.jpg" },
+    { id: 505, name: "Theo Winslow", character: "Nigel", profile_path: "https://randomuser.me/api/portraits/men/14.jpg" },
   ],
- 
+
   // The Mandalorian and Grogu
   6234567: [
-    { id: 601, name: "Pedro Salinas", character: "Din Djarin", profile_path: "https://i.pravatar.cc/300?img=61" },
-    { id: 602, name: "Katee Rowan", character: "Bo-Katan", profile_path: "https://i.pravatar.cc/300?img=62" },
-    { id: 603, name: "Werner Holt", character: "Moff Aldric", profile_path: "https://i.pravatar.cc/300?img=63" },
-    { id: 604, name: "Amara Diallo", character: "Captain Teva", profile_path: "https://i.pravatar.cc/300?img=64" },
-    { id: 605, name: "N/A", character: "Grogu", profile_path: "https://i.pravatar.cc/300?img=65" },
+    { id: 601, name: "Pedro Salinas", character: "Din Djarin", profile_path: "https://randomuser.me/api/portraits/men/15.jpg" },
+    { id: 602, name: "Katee Rowan", character: "Bo-Katan", profile_path: "https://randomuser.me/api/portraits/women/12.jpg" },
+    { id: 603, name: "Werner Holt", character: "Moff Aldric", profile_path: "https://randomuser.me/api/portraits/men/16.jpg" },
+    { id: 604, name: "Amara Diallo", character: "Captain Teva", profile_path: "https://randomuser.me/api/portraits/women/13.jpg" },
   ],
- 
+
   // Scream 7
   7234567: [
-    { id: 701, name: "Neve Ashby", character: "Sidney's Niece", profile_path: "https://i.pravatar.cc/300?img=71" },
-    { id: 702, name: "Courtland Myers", character: "Dewey Jr.", profile_path: "https://i.pravatar.cc/300?img=72" },
-    { id: 703, name: "Jenna Pruitt", character: "Sam Carpenter", profile_path: "https://i.pravatar.cc/300?img=73" },
-    { id: 704, name: "David Okafor", character: "Deputy Hicks", profile_path: "https://i.pravatar.cc/300?img=74" },
-    { id: 705, name: "Melissa Trent", character: "Gale Weathers", profile_path: "https://i.pravatar.cc/300?img=75" },
+    { id: 701, name: "Neve Ashby", character: "Sidney's Niece", profile_path: "https://randomuser.me/api/portraits/women/14.jpg" },
+    { id: 702, name: "Courtland Myers", character: "Dewey Jr.", profile_path: "https://randomuser.me/api/portraits/men/18.jpg" },
+    { id: 703, name: "Jenna Pruitt", character: "Sam Carpenter", profile_path: "https://randomuser.me/api/portraits/women/15.jpg" },
+    { id: 704, name: "David Okafor", character: "Deputy Hicks", profile_path: "https://randomuser.me/api/portraits/men/19.jpg" },
+    { id: 705, name: "Melissa Trent", character: "Gale Weathers", profile_path: "https://randomuser.me/api/portraits/women/16.jpg" },
   ],
- 
+
   // Wuthering Heights
   8234567: [
-    { id: 801, name: "Florence Ainsley", character: "Catherine Earnshaw", profile_path: "https://i.pravatar.cc/300?img=1" },
-    { id: 802, name: "CallumReid", character: "Heathcliff", profile_path: "https://i.pravatar.cc/300?img=2" },
-    { id: 803, name: "Margot Fenwick", character: "Isabella Linton", profile_path: "https://i.pravatar.cc/300?img=3" },
-    { id: 804, name: "Julian Ashcombe", character: "Edgar Linton", profile_path: "https://i.pravatar.cc/300?img=4" },
-    { id: 805, name: "Rose Kellerman", character: "Nelly Dean", profile_path: "https://i.pravatar.cc/300?img=5" },
+    { id: 801, name: "Florence Ainsley", character: "Catherine Earnshaw", profile_path: "https://randomuser.me/api/portraits/women/17.jpg" },
+    { id: 802, name: "Callum Reid", character: "Heathcliff", profile_path: "https://randomuser.me/api/portraits/men/20.jpg" },
+    { id: 803, name: "Margot Fenwick", character: "Isabella Linton", profile_path: "https://randomuser.me/api/portraits/women/18.jpg" },
+    { id: 804, name: "Julian Ashcombe", character: "Edgar Linton", profile_path: "https://randomuser.me/api/portraits/men/21.jpg" },
+    { id: 805, name: "Rose Kellerman", character: "Nelly Dean", profile_path: "https://randomuser.me/api/portraits/women/19.jpg" },
   ],
- 
+
   // Hoppers
   9234567: [
-    { id: 901, name: "Ivy Sandoval", character: "Mabel (voice)", profile_path: "https://i.pravatar.cc/300?img=6" },
-    { id: 902, name: "Aaron Delgado", character: "Ranger Cole (voice)", profile_path: "https://i.pravatar.cc/300?img=7" },
-    { id: 903, name: "Fiona Marsh", character: "Bristle the Beaver (voice)", profile_path: "https://i.pravatar.cc/300?img=8" },
-    { id: 904, name: "Trevor Nash", character: "Otis (voice)", profile_path: "https://i.pravatar.cc/300?img=9" },
-    { id: 905, name: "Wanda Iyer", character: "Developer Hargrove (voice)", profile_path: "https://i.pravatar.cc/300?img=10" },
+    { id: 901, name: "Ivy Sandoval", character: "Mabel (voice)", profile_path: "https://randomuser.me/api/portraits/women/20.jpg" },
+    { id: 902, name: "Aaron Delgado", character: "Ranger Cole (voice)", profile_path: "https://randomuser.me/api/portraits/men/22.jpg" },
+    { id: 903, name: "Fiona Marsh", character: "Bristle the Beaver (voice)", profile_path: "https://randomuser.me/api/portraits/women/21.jpg" },
+    { id: 904, name: "Trevor Nash", character: "Otis (voice)", profile_path: "https://randomuser.me/api/portraits/men/23.jpg" },
+    { id: 905, name: "Wanda Iyer", character: "Developer Hargrove (voice)", profile_path: "https://randomuser.me/api/portraits/women/22.jpg" },
   ],
- 
+
   // Goat
   10234567: [
-    { id: 1001, name: "Milo Anders", character: "Billy the Goat (voice)", profile_path: "https://i.pravatar.cc/300?img=16" },
-    { id: 1002, name: "Renee Ostrow", character: "Coach Buck (voice)", profile_path: "https://i.pravatar.cc/300?img=17" },
-    { id: 1003, name: "Desmond Cruz", character: "Rocco the Rhino (voice)", profile_path: "https://i.pravatar.cc/300?img=18" },
-    { id: 1004, name: "Tanya Blume", character: "Nanny (voice)", profile_path: "https://i.pravatar.cc/300?img=19" },
-    { id: 1005, name: "Percy Wade", character: "Announcer Flint (voice)", profile_path: "https://i.pravatar.cc/300?img=20" },
+    { id: 1001, name: "Milo Anders", character: "Billy the Goat (voice)", profile_path: "https://randomuser.me/api/portraits/men/24.jpg" },
+    { id: 1002, name: "Renee Ostrow", character: "Coach Buck (voice)", profile_path: "https://randomuser.me/api/portraits/women/23.jpg" },
+    { id: 1003, name: "Desmond Cruz", character: "Rocco the Rhino (voice)", profile_path: "https://randomuser.me/api/portraits/men/25.jpg" },
+    { id: 1004, name: "Tanya Blume", character: "Nanny (voice)", profile_path: "https://randomuser.me/api/portraits/women/24.jpg" },
+    { id: 1005, name: "Percy Wade", character: "Announcer Flint (voice)", profile_path: "https://randomuser.me/api/portraits/men/26.jpg" },
   ],
- 
+
   // Zootopia 2
   11234567: [
-    { id: 1101, name: "Ginnifer Voss", character: "Judy Hopps (voice)", profile_path: "https://i.pravatar.cc/300?img=26" },
-    { id: 1102, name: "Marlon Reyes", character: "Nick Wilde (voice)", profile_path: "https://i.pravatar.cc/300?img=27" },
-    { id: 1103, name: "Della Huang", character: "Chief Bogo (voice)", profile_path: "https://i.pravatar.cc/300?img=28" },
-    { id: 1104, name: "Simeon Ortiz", character: "Gary De'Snake (voice)", profile_path: "https://i.pravatar.cc/300?img=29" },
-    { id: 1105, name: "Harriet Combs", character: "Mayor Winters (voice)", profile_path: "https://i.pravatar.cc/300?img=30" },
+    { id: 1101, name: "Ginnifer Voss", character: "Judy Hopps (voice)", profile_path: "https://randomuser.me/api/portraits/women/25.jpg" },
+    { id: 1102, name: "Marlon Reyes", character: "Nick Wilde (voice)", profile_path: "https://randomuser.me/api/portraits/men/27.jpg" },
+    { id: 1103, name: "Della Huang", character: "Chief Bogo (voice)", profile_path: "https://randomuser.me/api/portraits/women/26.jpg" },
+    { id: 1104, name: "Simeon Ortiz", character: "Gary De'Snake (voice)", profile_path: "https://randomuser.me/api/portraits/men/28.jpg" },
+    { id: 1105, name: "Harriet Combs", character: "Mayor Winters (voice)", profile_path: "https://randomuser.me/api/portraits/women/27.jpg" },
   ],
- 
+
   // Avatar: Fire and Ash
   12234567: [
-    { id: 1201, name: "Samuel Ridgeway", character: "Jake Sully", profile_path: "https://i.pravatar.cc/300?img=36" },
-    { id: 1202, name: "Zoya Merrick", character: "Neytiri", profile_path: "https://i.pravatar.cc/300?img=37" },
-    { id: 1203, name: "Bram Castellan", character: "Varang, Ash Clan Leader", profile_path: "https://i.pravatar.cc/300?img=38" },
-    { id: 1204, name: "Kiona Marsh", character: "Kiri", profile_path: "https://i.pravatar.cc/300?img=39" },
-    { id: 1205, name: "Peter Alden", character: "Colonel Quaritch", profile_path: "https://i.pravatar.cc/300?img=40" },
+    { id: 1201, name: "Samuel Ridgeway", character: "Jake Sully", profile_path: "https://randomuser.me/api/portraits/men/29.jpg" },
+    { id: 1202, name: "Zoya Merrick", character: "Neytiri", profile_path: "https://randomuser.me/api/portraits/women/28.jpg" },
+    { id: 1203, name: "Bram Castellan", character: "Varang, Ash Clan Leader", profile_path: "https://randomuser.me/api/portraits/men/30.jpg" },
+    { id: 1204, name: "Kiona Marsh", character: "Kiri", profile_path: "https://randomuser.me/api/portraits/women/29.jpg" },
+    { id: 1205, name: "Peter Alden", character: "Colonel Quaritch", profile_path: "https://randomuser.me/api/portraits/men/31.jpg" },
   ],
- 
+
   // The Bride!
   13234567: [
-    { id: 1301, name: "Odette Marchand", character: "The Bride", profile_path: "https://i.pravatar.cc/300?img=46" },
-    { id: 1302, name: "Corbin Wexley", character: "The Creature", profile_path: "https://i.pravatar.cc/300?img=47" },
-    { id: 1303, name: "Alastair Doyle", character: "Dr. Volker", profile_path: "https://i.pravatar.cc/300?img=48" },
-    { id: 1304, name: "Marguerite Snow", character: "Lucille", profile_path: "https://i.pravatar.cc/300?img=49" },
-    { id: 1305, name: "Hollis Grant", character: "Detective Marsh", profile_path: "https://i.pravatar.cc/300?img=50" },
+    { id: 1301, name: "Odette Marchand", character: "The Bride", profile_path: "https://randomuser.me/api/portraits/women/30.jpg" },
+    { id: 1302, name: "Corbin Wexley", character: "The Creature", profile_path: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { id: 1303, name: "Alastair Doyle", character: "Dr. Volker", profile_path: "https://randomuser.me/api/portraits/men/33.jpg" },
+    { id: 1304, name: "Marguerite Snow", character: "Lucille", profile_path: "https://randomuser.me/api/portraits/women/31.jpg" },
+    { id: 1305, name: "Hollis Grant", character: "Detective Marsh", profile_path: "https://randomuser.me/api/portraits/men/34.jpg" },
   ],
- 
+
   // Avengers: Doomsday
   15234567: [
-    { id: 1501, name: "Dominic Farrow", character: "Captain America", profile_path: "https://i.pravatar.cc/300?img=56" },
-    { id: 1502, name: "Alina Petrov", character: "Scarlet Witch", profile_path: "https://i.pravatar.cc/300?img=57" },
-    { id: 1503, name: "Curtis Vane", character: "Doctor Doom", profile_path: "https://i.pravatar.cc/300?img=58" },
-    { id: 1504, name: "Naomi Ellsworth", character: "Storm", profile_path: "https://i.pravatar.cc/300?img=59" },
-    { id: 1505, name: "Reggie Osborne", character: "Wolverine", profile_path: "https://i.pravatar.cc/300?img=60" },
+    { id: 1501, name: "Dominic Farrow", character: "Captain America", profile_path: "https://randomuser.me/api/portraits/men/35.jpg" },
+    { id: 1502, name: "Alina Petrov", character: "Scarlet Witch", profile_path: "https://randomuser.me/api/portraits/women/32.jpg" },
+    { id: 1503, name: "Curtis Vane", character: "Doctor Doom", profile_path: "https://randomuser.me/api/portraits/men/36.jpg" },
+    { id: 1504, name: "Naomi Ellsworth", character: "Storm", profile_path: "https://randomuser.me/api/portraits/women/33.jpg" },
+    { id: 1505, name: "Reggie Osborne", character: "Wolverine", profile_path: "https://randomuser.me/api/portraits/men/37.jpg" },
   ],
 };
 
@@ -395,9 +394,9 @@ export const dummyShowsData = [
         "poster_path": "https://i.pinimg.com/736x/fc/64/f4/fc64f4ef0381331d52a80b204ce75749.jpg",
         "backdrop_path": "https://i.pinimg.com/736x/0b/42/4d/0b424d025281a6d44eb9c924b0bf7ec6.jpg",
         "genres": [
-            { "id": 878, "name": "Science Fiction" },
+            { "id": 878, "name": "Adventure" },
             { "id": 28, "name": "Action" },
-            { "id": 12, "name": "Adventure" }
+            { "id": 12, "name": "Science Fiction" }
         ],
         "casts": dummyCastsData,
         "release_date": "2025-12-19",
@@ -449,28 +448,40 @@ export const dummyShowsData = [
     },
 ]
 
-export const dummyDateTimeData = {
-    "2025-07-24": [
-        { "time": "2025-07-24T01:00:00.000Z", "showId": "68395b407f6329be2bb45bd1" },
-        { "time": "2025-07-24T03:00:00.000Z", "showId": "68395b407f6329be2bb45bd2" },
-        { "time": "2025-07-24T05:00:00.000Z", "showId": "68395b407f6329be2bb45bd3" }
-    ],
-    "2025-07-25": [
-        { "time": "2025-07-25T01:00:00.000Z", "showId": "68395b407f6329be2bb45bd4" },
-        { "time": "2025-07-25T03:00:00.000Z", "showId": "68395b407f6329be2bb45bd5" },
-        { "time": "2025-07-25T05:00:00.000Z", "showId": "68395b407f6329be2bb45bd6" }
-    ],
-    "2025-07-26": [
-        { "time": "2025-07-26T01:00:00.000Z", "showId": "68395b407f6329be2bb45bd7" },
-        { "time": "2025-07-26T03:00:00.000Z", "showId": "68395b407f6329be2bb45bd8" },
-        { "time": "2025-07-26T05:00:00.000Z", "showId": "68395b407f6329be2bb45bd9" }
-    ],
-    "2025-07-27": [
-        { "time": "2025-07-27T01:00:00.000Z", "showId": "68395b407f6329be2bb45bda" },
-        { "time": "2025-07-27T03:00:00.000Z", "showId": "68395b407f6329be2bb45bdb" },
-        { "time": "2025-07-27T05:00:00.000Z", "showId": "68395b407f6329be2bb45bdc" }
-    ]
-}
+export const dummyDateTimeData = [
+    {
+        date: "2025-07-24",
+        times: [
+            { time: "2025-07-24T01:00:00.000Z", showId: "68395b407f6329be2bb45bd1" },
+            { time: "2025-07-24T03:00:00.000Z", showId: "68395b407f6329be2bb45bd2" },
+            { time: "2025-07-24T05:00:00.000Z", showId: "68395b407f6329be2bb45bd3" }
+        ]
+    },
+    {
+        date: "2025-07-25",
+        times: [
+            { time: "2025-07-25T01:00:00.000Z", showId: "68395b407f6329be2bb45bd4" },
+            { time: "2025-07-25T03:00:00.000Z", showId: "68395b407f6329be2bb45bd5" },
+            { time: "2025-07-25T05:00:00.000Z", showId: "68395b407f6329be2bb45bd6" }
+        ]
+    },
+    {
+        date: "2025-07-26",
+        times: [
+            { time: "2025-07-26T01:00:00.000Z", showId: "68395b407f6329be2bb45bd7" },
+            { time: "2025-07-26T03:00:00.000Z", showId: "68395b407f6329be2bb45bd8" },
+            { time: "2025-07-26T05:00:00.000Z", showId: "68395b407f6329be2bb45bd9" }
+        ]
+    },
+    {
+        date: "2025-07-27",
+        times: [
+            { time: "2025-07-27T01:00:00.000Z", showId: "68395b407f6329be2bb45bda" },
+            { time: "2025-07-27T03:00:00.000Z", showId: "68395b407f6329be2bb45bdb" },
+            { time: "2025-07-27T05:00:00.000Z", showId: "68395b407f6329be2bb45bdc" }
+        ]
+    }
+]
 
 export const dummyDashboardData = {
     "totalBookings": 14,

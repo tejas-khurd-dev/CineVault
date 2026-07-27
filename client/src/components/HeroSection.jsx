@@ -28,7 +28,7 @@ const HeroSection = () => {
 
         <p className='text-gray-300 py-3 '>In their final and most terrifying case, <br />Ed and Lorraine Warren confront an ancient evil that  <br />  threatens  to consume every soul.</p>
 
-        <button onClick={()=>navigate("/movies")} className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer' >Explore Movies <ArrowRight/> </button>
+        <button onClick={()=>{navigate("/movies"); scroll(0, 0);}} className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer' >Explore Movies <ArrowRight/> </button>
     </div>
   )
 }

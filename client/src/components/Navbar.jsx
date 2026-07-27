@@ -15,19 +15,19 @@ const Navbar = () => {
     const navigate = useNavigate()
 
   return (
-    <div className='fixed top-0 left-0 z-100 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 pt-5 bg-gradient-to-r from-[#000000] via-transparent to-transparent'>
+    <div className='fixed top-0 left-0 z-100 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 pt-5'>
         
         <Link to='/'>
             <img src={assets.logo} alt="logo" className='w-72 h-auto'/>
         </Link>
         
 
-        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 border border-white/20 hidden mr-20'>
-            <Link to='/'>Home</Link>
-            <Link to='/movies'>Movies</Link>
-            <Link to='/'>About</Link>
-            <Link to='/favourite'>Favourite</Link>
-            <Link to='/'>Releases</Link>
+        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 hidden mr-20'>
+            <button onClick={() => { navigate("/"); scrollTo(0, 0);}}>Home</button>
+            <button onClick={() => { navigate("/movies"); scrollTo(0, 0);}}>Movies</button>
+            <button onClick={() => { navigate("/"); scrollTo(0, 0);}}>About</button>
+            <button onClick={() => { navigate("/favourite"); scrollTo(0, 0);}}>Favourite</button>
+            <button onClick={() => { navigate("/"); scrollTo(0, 0);}}>Releases</button>
         </div>
 
         
@@ -44,7 +44,7 @@ const Navbar = () => {
                         }
                     }}>
                         <UserButton.MenuItems>
-                            <UserButton.Action label='My Bookings' labelIcon={<Ticket size={16} />} onClick={()=>navigate('/mybookings')}/>
+                            <UserButton.Action label='My Bookings' labelIcon={<Ticket size={16} />} onClick={()=>{navigate('/mybookings'); scroll(0,0)}}/>
                         </UserButton.MenuItems>
                     </UserButton>
                 )
