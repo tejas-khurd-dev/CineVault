@@ -1,11 +1,22 @@
-import React from 'react'
+import { useState } from 'react'
 import BlurCircle from './BlurCircle'
 import { dummyDateTimeData } from '../assets/assets'
 import dateFormat from '../lib/dateFormat'
+import { useNavigate } from 'react-router-dom'
 
 const DateSelection = () => {
 
-  const { day, month } = dateFormat("2025-07-24")
+  const [selected, setSelected] = useState(null)
+
+  const navigate = useNavigate()
+
+  const onBookHnadler = () =>{
+    if(!selected){
+      return toast('Please select a date')
+    }
+    navigate(`/moviedetails/${id}/${selected}`)
+    scroll(0,0)
+  }
 
   return (
     <div className='px-50 pt-15'>
@@ -19,14 +30,14 @@ const DateSelection = () => {
             {dummyDateTimeData.map((i) => {
               const { day, month } = dateFormat(i.date)
               return (
-                <button key={i.date} className='border  border-primary px-5 py-2 rounded-md'>
+                <button  onClick={()=> setSelected(selected===i.date?null:i.date)} key={i.date} className={`border  border-primary px-5 py-2 rounded-md ${selected === i.date? "bg-primary" : "bg-transparent"}`}>
                   {day} <br /> {month}
                 </button>
               )
             })}
           </div>
 
-          <div className='h-full mx-2'>
+          <div onClick={onBookHnadler} className='h-full mx-2'>
             <button className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Show More</button>
           </div>
           

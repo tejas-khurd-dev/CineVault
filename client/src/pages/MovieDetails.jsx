@@ -46,7 +46,7 @@ const MovieDetails = () => {
           
           <div className='flex gap-4 justify-start items-center'>
             <button className='bg-gray-700 px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Watch Trailer</button>
-            <button className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Buy Tickets</button>
+            <a href='#dataSelect' className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Buy Tickets</a>
             <div className="bg-gray-700 rounded-full p-3">
               <HeartIcon className="w-5 h-5" />
             </div>
@@ -58,7 +58,7 @@ const MovieDetails = () => {
         <h3 className='text-xl font-bold text-white/90 [word-spacing:2px] px-40 pt-30'>Your Favourite Cast</h3>
         <div className='flex gap-10 overflow-x-auto items-center no-scrollbar px-50 py-12 '>
           {dummyCastsData[id].map((cast) => (
-            <div className='flex flex-col items-center text-gray-400 font-medium space-y-3'>
+            <div key={cast.id} className='flex flex-col items-center text-gray-400 font-medium space-y-3'>
               <img key={cast.id} src={cast.profile_path}alt={cast.name} className='rounded-full w-30 h-30 object-cover shadow-[0_0_20px_rgba(239,68,68,0.6)]' />
               <p className='mx-auto'>{cast.name}</p>
             </div>
@@ -66,7 +66,7 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      <div className='relative'>
+      <div className='relative' id='dataSelect'>
         <DateSelection/>
       </div>
       
