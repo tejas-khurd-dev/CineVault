@@ -17,7 +17,20 @@ const App = () => {
   return (
     <>
 
-      <Toaster/>
+      <Toaster
+        position="top-center"
+        containerStyle={{
+          top: 88,
+          transform: "translateX(60px)",
+        }}
+        toastOptions={{
+          style: {
+            background: "#1f2937",
+            color: "#fff",
+            border: "1px solid #ef4444",
+          },
+        }}
+      />
       {!isAdminRoute && <Navbar />}
 
       <Routes>
@@ -25,7 +38,7 @@ const App = () => {
         <Route path='/favourite' element={<Favourite />} />
         <Route path='/movies' element={<Movies />} />
         <Route path='/moviedetails/:id' element={<MovieDetails />} />
-        <Route path='/moviedetails/:id/:date' element={<SeatLayout />} />
+        <Route path='/seatlayout/:id/:date' element={<SeatLayout />} />
         <Route path='/mybookings' element={<MyBookings />} />
       </Routes>
 

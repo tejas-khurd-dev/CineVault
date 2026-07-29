@@ -2,9 +2,12 @@ import { useState } from 'react'
 import BlurCircle from './BlurCircle'
 import { dummyDateTimeData } from '../assets/assets'
 import dateFormat from '../lib/dateFormat'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import {toast} from 'react-hot-toast'
 
 const DateSelection = () => {
+
+  const {id} = useParams()
 
   const [selected, setSelected] = useState(null)
 
@@ -12,9 +15,9 @@ const DateSelection = () => {
 
   const onBookHnadler = () =>{
     if(!selected){
-      return toast('Please select a date')
+      return toast("Please select a date")
     }
-    navigate(`/moviedetails/${id}/${selected}`)
+    navigate(`/seatlayout/${id}/${selected}`)
     scroll(0,0)
   }
 
@@ -38,7 +41,7 @@ const DateSelection = () => {
           </div>
 
           <div onClick={onBookHnadler} className='h-full mx-2'>
-            <button className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Show More</button>
+            <button className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Book Now</button>
           </div>
           
         </div>

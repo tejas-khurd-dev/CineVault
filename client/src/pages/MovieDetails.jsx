@@ -6,6 +6,7 @@ import timeFormat from '../lib/timeFormat'
 import BlurCircle from '../components/BlurCircle'
 import MovieCard from '../components/MovieCard'
 import DateSelection from '../components/DateSelection'
+import Loading from '../components/Loading'
 
 const MovieDetails = () => {
   const {id} = useParams()
@@ -16,10 +17,12 @@ const MovieDetails = () => {
 
   const getShow = async ()=> {
     const show = dummyShowsData.find(i=>i._id == id)
-    setShow({
-      movie:show,
-      dateTime: dummyDateTimeData
-    })
+    if(show){
+      setShow({
+        movie:show,
+        dateTime: dummyDateTimeData
+      })
+    }
   }
 
   useEffect(() => {
@@ -84,7 +87,7 @@ const MovieDetails = () => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <Loading/>
   )
 }
 

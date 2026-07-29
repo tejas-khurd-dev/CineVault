@@ -1,5 +1,4 @@
 import logo from './logo.svg'
-import marvelLogo from './marvelLogo.svg'
 import theConjuringLogo from './theConjuringLogo.svg'
 import googlePlay from './googlePlay.svg'
 import appStore from './appStore.svg'
@@ -8,7 +7,6 @@ import profile from './profile.png'
 
 export const assets = {
     logo,
-    marvelLogo,
     theConjuringLogo,
     googlePlay,
     appStore,
@@ -449,39 +447,50 @@ export const dummyShowsData = [
 ]
 
 export const dummyDateTimeData = [
-    {
-        date: "2025-07-24",
-        times: [
-            { time: "2025-07-24T01:00:00.000Z", showId: "68395b407f6329be2bb45bd1" },
-            { time: "2025-07-24T03:00:00.000Z", showId: "68395b407f6329be2bb45bd2" },
-            { time: "2025-07-24T05:00:00.000Z", showId: "68395b407f6329be2bb45bd3" }
-        ]
-    },
-    {
-        date: "2025-07-25",
-        times: [
-            { time: "2025-07-25T01:00:00.000Z", showId: "68395b407f6329be2bb45bd4" },
-            { time: "2025-07-25T03:00:00.000Z", showId: "68395b407f6329be2bb45bd5" },
-            { time: "2025-07-25T05:00:00.000Z", showId: "68395b407f6329be2bb45bd6" }
-        ]
-    },
-    {
-        date: "2025-07-26",
-        times: [
-            { time: "2025-07-26T01:00:00.000Z", showId: "68395b407f6329be2bb45bd7" },
-            { time: "2025-07-26T03:00:00.000Z", showId: "68395b407f6329be2bb45bd8" },
-            { time: "2025-07-26T05:00:00.000Z", showId: "68395b407f6329be2bb45bd9" }
-        ]
-    },
-    {
-        date: "2025-07-27",
-        times: [
-            { time: "2025-07-27T01:00:00.000Z", showId: "68395b407f6329be2bb45bda" },
-            { time: "2025-07-27T03:00:00.000Z", showId: "68395b407f6329be2bb45bdb" },
-            { time: "2025-07-27T05:00:00.000Z", showId: "68395b407f6329be2bb45bdc" }
-        ]
-    }
-]
+  {
+    date: "2025-07-24",
+    times: [
+      { time: "2025-07-24T01:00:00.000Z", showId: "68395b407f6329be2bb45bd1" },
+      { time: "2025-07-24T03:00:00.000Z", showId: "68395b407f6329be2bb45bd2" },
+      { time: "2025-07-24T05:00:00.000Z", showId: "68395b407f6329be2bb45bd3" },
+      { time: "2025-07-24T08:00:00.000Z", showId: "68395b407f6329be2bb45bdd" },
+      { time: "2025-07-24T11:30:00.000Z", showId: "68395b407f6329be2bb45bde" },
+      { time: "2025-07-24T15:00:00.000Z", showId: "68395b407f6329be2bb45bdf" },
+    ],
+  },
+  {
+    date: "2025-07-25",
+    times: [
+      { time: "2025-07-25T01:00:00.000Z", showId: "68395b407f6329be2bb45bd4" },
+      { time: "2025-07-25T03:00:00.000Z", showId: "68395b407f6329be2bb45bd5" },
+      { time: "2025-07-25T05:00:00.000Z", showId: "68395b407f6329be2bb45bd6" },
+      { time: "2025-07-25T09:15:00.000Z", showId: "68395b407f6329be2bb45be0" },
+      { time: "2025-07-25T13:00:00.000Z", showId: "68395b407f6329be2bb45be1" },
+    ],
+  },
+  {
+    date: "2025-07-26",
+    times: [
+      { time: "2025-07-26T01:00:00.000Z", showId: "68395b407f6329be2bb45bd7" },
+      { time: "2025-07-26T03:00:00.000Z", showId: "68395b407f6329be2bb45bd8" },
+      { time: "2025-07-26T05:00:00.000Z", showId: "68395b407f6329be2bb45bd9" },
+      { time: "2025-07-26T07:45:00.000Z", showId: "68395b407f6329be2bb45be2" },
+      { time: "2025-07-26T12:30:00.000Z", showId: "68395b407f6329be2bb45be3" },
+      { time: "2025-07-26T16:15:00.000Z", showId: "68395b407f6329be2bb45be4" },
+      { time: "2025-07-26T20:00:00.000Z", showId: "68395b407f6329be2bb45be5" },
+    ],
+  },
+  {
+    date: "2025-07-27",
+    times: [
+      { time: "2025-07-27T01:00:00.000Z", showId: "68395b407f6329be2bb45bda" },
+      { time: "2025-07-27T03:00:00.000Z", showId: "68395b407f6329be2bb45bdb" },
+      { time: "2025-07-27T05:00:00.000Z", showId: "68395b407f6329be2bb45bdc" },
+      { time: "2025-07-27T10:00:00.000Z", showId: "68395b407f6329be2bb45be6" },
+      { time: "2025-07-27T14:30:00.000Z", showId: "68395b407f6329be2bb45be7" },
+    ],
+  },
+];
 
 export const dummyDashboardData = {
     "totalBookings": 14,
