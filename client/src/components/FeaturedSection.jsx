@@ -19,12 +19,10 @@ const FeaturedSection = () => {
 
         <BlurCircle top="35rem" left="10rem"/>
 
-        <div className='flex flex-wrap justify-center items-center gap-8'>
-            {dummyShowsData.slice(0,4).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
+        <div className='flex flex-wrap justify-center items-center gap-7'>
+            {dummyShowsData.slice(0,8).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
         </div>
-        <div className='flex flex-wrap justify-center items-center gap-8 mt-4'>
-            {dummyShowsData.slice(4,8).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
-        </div>
+       
   
         <div className='flex justify-center items-center mt-12'>
             <button onClick={()=>{navigate("/movies"); scroll(0, 0);}} className='bg-primary px-4 py-2 my-2 rounded-3xl text-xl flex justify-between items-center gap-1 cursor-pointer'>Show More</button>

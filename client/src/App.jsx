@@ -9,6 +9,7 @@ import SeatLayout from './pages/SeatLayout'
 import MyBookings from './pages/MyBookings'
 import Footer from './components/Footer'
 import { Toaster } from 'react-hot-toast'
+import NotFound from './pages/NotFound'
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
         <Route path='/moviedetails/:id' element={<MovieDetails />} />
         <Route path='/seatlayout/:id/:date' element={<SeatLayout />} />
         <Route path='/mybookings' element={<MyBookings />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {!isAdminRoute && <Footer />}

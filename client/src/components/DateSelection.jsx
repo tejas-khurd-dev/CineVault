@@ -3,7 +3,7 @@ import BlurCircle from './BlurCircle'
 import { dummyDateTimeData } from '../assets/assets'
 import dateFormat from '../lib/dateFormat'
 import { useNavigate, useParams } from 'react-router-dom'
-import {toast} from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 const DateSelection = () => {
 
