@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <footer className="px-6 pt-40 md:px-16 lg:px-36 w-full text-gray-300/50">
+    <footer className="px-6 pt-16 md:pt-40 md:px-16 lg:px-36 w-full text-gray-300/50">
       <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500 pb-10">
           <div className="md:max-w-96">
               <img alt="" className="h-11" src={assets.logo} />
@@ -15,7 +15,7 @@ const Footer = () => {
                   <img src={assets.appStore} />
               </div>
           </div>
-          <div className="flex-1 flex items-start md:justify-end gap-20 md:gap-40">
+          <div className="flex-1 flex flex-col sm:flex-row items-start md:justify-end gap-10 sm:gap-20 md:gap-40">
               <div>
                   <h2 className="font-semibold mb-5">Company</h2>
                   <ul className="text-sm space-y-2">

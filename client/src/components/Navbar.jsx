@@ -18,11 +18,11 @@ const Navbar = () => {
     <div className='fixed top-0 left-0 z-100 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 pt-5'>
         
         <Link to='/'>
-            <img src={assets.logo} alt="logo" className='w-72 h-auto'/>
+            <img src={assets.logo} alt="logo" className='w-36 sm:w-48 md:w-72 h-auto'/>
         </Link>
         
 
-        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 hidden mr-20'>
+        <div className='md:flex items-center justify-between space-x-6 text-lg rounded-4xl px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 hidden lg:mr-20'>
             <button onClick={() => { navigate("/"); scrollTo(0, 0);}}>Home</button>
             <button onClick={() => { navigate("/movies"); scrollTo(0, 0);}}>Movies</button>
             <button onClick={() => { navigate("/"); scrollTo(0, 0);}}>About</button>
@@ -57,14 +57,14 @@ const Navbar = () => {
             onClick={()=> setIsOpen(true)}
 
         />
-        {isOpen && <div className='w-1/2 h-screen bg-black/90 absolute left-0 top-0 border-r border-white/10'>
+        {isOpen && <div className='w-2/3 max-w-xs h-screen bg-black/90 fixed left-0 top-0 border-r border-white/10 z-50'>
             <XIcon className='w-6 h-6 bg-white/30 rounded-full mx-4 my-10 cursor-pointer' onClick={()=> setIsOpen(false)}/>
-            <div className='flex flex-col items-center justify-between space-y-8 absolute left-10'>
-                <Link to='/'>Home</Link>
-                <Link to='/movies'>Movies</Link>
-                <Link to='/'>About</Link>
-                <Link to='/favourite'>Favourite</Link>
-                <Link to='/'>Releases</Link>
+            <div className='flex flex-col items-start gap-8 px-10'>
+                <Link to='/' onClick={()=>setIsOpen(false)}>Home</Link>
+                <Link to='/movies' onClick={()=>setIsOpen(false)}>Movies</Link>
+                <Link to='/' onClick={()=>setIsOpen(false)}>About</Link>
+                <Link to='/favourite' onClick={()=>setIsOpen(false)}>Favourite</Link>
+                <Link to='/' onClick={()=>setIsOpen(false)}>Releases</Link>
             </div>
         </div>}
         

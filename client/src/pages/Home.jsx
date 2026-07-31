@@ -5,7 +5,7 @@ import TrailerSection from '../components/TrailerSection'
 
 const Home = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <HeroSection />
       <FeaturedSection/>
       <TrailerSection/>
