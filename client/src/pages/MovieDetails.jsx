@@ -30,7 +30,7 @@ const MovieDetails = () => {
   }, [id])
   
   return Show ? (
-    <div className='relative pt-20 sm:pt-24 md:pt-36 lg:pt-48 xl:pt-55 pb-5 sm:pb-8 md:pb-10 px-6 md:px-16 lg:px-24 xl:px-44'>
+    <div className='relative pt-22 sm:pt-24 md:pt-36 lg:pt-48 xl:pt-55 pb-5 sm:pb-8 md:pb-10 px-6 md:px-16 lg:px-24 xl:px-44 overflow-x-hidden'>
       <div className='flex flex-col md:flex-row flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-center md:justify-start items-center md:items-start'>
         <img
           src={Show.movie.poster_path}

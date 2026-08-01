@@ -564,43 +564,43 @@ export const dummyDashboardData = {
 
 
 export const dummyBookingData = [
-    {
-        "_id": "68396334fb83252d82e17295",
-        "user": { "name": "GreatStack", },
-        "show": {
-            _id: "68352363e96d99513e4221a4",
-            movie: dummyShowsData[0],
-            showDateTime: "2025-06-30T02:30:00.000Z",
-            showPrice: 59,
-        },
-        "amount": 98,
-        "bookedSeats": ["D1", "D2"],
-        "isPaid": false,
+  {
+    _id: "68396334fb83252d82e17295",
+    user: { name: "TejasKhurd" },
+    show: {
+      _id: "68352363e96d99513e4221a4",
+      movie: dummyShowsData[1],
+      showDateTime: "2025-06-30T02:30:00.000Z",
+      showPrice: 59,
     },
-    {
-        "_id": "68396334fb83252d82e17295",
-        "user": { "name": "GreatStack", },
-        "show": {
-            _id: "68352363e96d99513e4221a4",
-            movie: dummyShowsData[0],
-            showDateTime: "2025-06-30T02:30:00.000Z",
-            showPrice: 59,
-        },
-        "amount": 49,
-        "bookedSeats": ["A1"],
-        "isPaid": true,
+    amount: 200,
+    bookedSeats: ["D1", "D2"],
+    isPaid: false,
+  },
+  {
+    _id: "68396334fb83252d82e17296",
+    user: { name: "TejasKhurd" },
+    show: {
+      _id: "68352363e96d99513e4221a5",
+      movie: dummyShowsData[4],
+      showDateTime: "2025-07-05T05:30:00.000Z",
+      showPrice: 59,
     },
-    {
-        "_id": "68396334fb83252d82e17295",
-        "user": { "name": "GreatStack", },
-        "show": {
-            _id: "68352363e96d99513e4221a4",
-            movie: dummyShowsData[0],
-            showDateTime: "2025-06-30T02:30:00.000Z",
-            showPrice: 59,
-        },
-        "amount": 147,
-        "bookedSeats": ["A1", "A2","A3"],
-        "isPaid": true,
+    amount: 250,
+    bookedSeats: ["A1"],
+    isPaid: true,
+  },
+  {
+    _id: "68396334fb83252d82e17297",
+    user: { name: "TejasKhurd" },
+    show: {
+      _id: "68352363e96d99513e4221a6",
+      movie: dummyShowsData[7],
+      showDateTime: "2025-07-10T08:00:00.000Z",
+      showPrice: 59,
     },
-]
+    amount: 300,
+    bookedSeats: ["A1", "A2", "A3"],
+    isPaid: true,
+  },
+];
