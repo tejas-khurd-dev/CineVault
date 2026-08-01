@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes,  Route, useLocation } from 'react-router-dom'
+import { Routes,  Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Favourite from './pages/Favourite'
@@ -12,8 +12,6 @@ import { Toaster } from 'react-hot-toast'
 import NotFound from './pages/NotFound'
 
 const App = () => {
-
-  const isAdminRoute = useLocation().pathname.startsWith('/admin')
 
   return (
     <>
@@ -32,7 +30,8 @@ const App = () => {
           },
         }}
       />
-      {!isAdminRoute && <Navbar />}
+      
+      <Navbar />
 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -44,7 +43,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {!isAdminRoute && <Footer />}
+      <Footer />
 
     </>
   )
