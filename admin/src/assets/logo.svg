@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 500 72"
+     role="img"
+     aria-label="CineVault Logo">
+
+  <!-- Icon Background -->
+  <rect x="0" y="0" width="72" height="72" rx="16" fill="#0F172A"/>
+
+  <!-- C -->
+  <path
+    d="M27 20a16 16 0 1 0 0 32h5v-7h-5a9 9 0 1 1 0-18h5v-7h-5z"
+    fill="#F84565"/>
+
+  <!-- Play -->
+  <polygon
+    points="41,25 55,36 41,47"
+    fill="#FFFFFF"/>
+
+  <!-- Brand -->
+<text
+    x="96"
+    y="49"
+    font-family="'Bebas Neue', sans-serif"
+    font-size="46"
+    letter-spacing="1"
+    fill="#F8FAFC"
+    stroke="#F8FAFC"
+    stroke-width="0.6"
+    paint-order="stroke fill">
+    CINE<tspan fill="#F84565" stroke="#F84565">VAULT</tspan>
+</text>
+
+</svg>

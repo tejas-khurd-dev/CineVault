@@ -10,7 +10,7 @@ const Layout = () => {
       <div className="flex">
         <AdminSidebar />
 
-        <div >
+        <div className='h-[cacl(100vh - 85px)]'>
           <Outlet />
         </div>
       </div>
