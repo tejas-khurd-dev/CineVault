@@ -1,5 +1,5 @@
 import logo from './logo.svg'
-import adminPFP from './adminPFP.png'
+import adminPFP from './adminPFP.jpeg'
 
 export const assets = {
     logo,

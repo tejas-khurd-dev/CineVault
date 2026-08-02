@@ -11,7 +11,7 @@ import AdminGuard from './components/AdminGuard'
 const App = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/sign-in" element={<Login />} />
 
       <Route path="/*" element={<AdminGuard><Layout /></AdminGuard>}>
         <Route index element={<Dashboard />} />

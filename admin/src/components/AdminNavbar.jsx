@@ -9,11 +9,11 @@ const AdminNavbar = () => {
 
 
   return (
-    <div className='w-full border-b border-b-gray-400/20 py-5 px-10 flex justify-between items-center h-[85px]'>
+    <div className='w-full border-b border-b-gray-400/20 py-5 px-10 flex justify-between items-center h-21.25'>
       <Link to='/'>
         <img src={assets.logo} alt="logo" className='w-36 sm:w-48 md:w-72 h-auto'/>
       </Link>
-
+      
       <UserButton
         appearance={{
           elements: {

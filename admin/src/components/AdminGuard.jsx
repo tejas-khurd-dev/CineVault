@@ -1,17 +1,12 @@
 import React from 'react'
 import { useUser, useClerk, Show } from '@clerk/react'
 import Loading from './Loading'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const AdminGuard = ({ children }) => {
   const { isLoaded, user } = useUser()
   const { signOut } = useClerk()
-  const navigate = useNavigate()
 
-  const handleSwitchAccount = async () => {
-    await signOut()
-    navigate('/sign-in', { replace: true })
-  }
 
   return isLoaded ? (
     <>
@@ -22,7 +17,7 @@ const AdminGuard = ({ children }) => {
           <div className='flex flex-col items-center justify-center h-screen text-white text-lg gap-6'>
             <p>You are not authorized to access this page.</p>
             <button
-              onClick={handleSwitchAccount}
+              onClick={async ()=> await signOut()}
               className='rounded-2xl bg-primary px-6 py-2 text-base'
             >
               Sign out & switch account
@@ -32,7 +27,7 @@ const AdminGuard = ({ children }) => {
       </Show>
 
       <Show when="signed-out">
-        <Navigate to="/login" replace />
+        <Navigate to="/sign-in" replace />
       </Show>
     </>
   ) : (
