@@ -6,10 +6,13 @@ import { ArrowRight, Clock } from 'lucide-react'
 import showTimeFormat from '../lib/showTimeFormat'
 import BlurCircle from '../components/BlurCircle'
 import toast from 'react-hot-toast'
+import { useUser } from '@clerk/react'
 
 const SeatLayout = () => {
 
   const {id, date} = useParams()
+
+  const {user} = useUser()
 
   const [selectedDate, setSelectedDate] = useState(null)
 
@@ -102,7 +105,14 @@ const SeatLayout = () => {
           </div>
 
           <div className='flex justify-center items-center mt-8 sm:mt-10 md:mt-12'>
-            <button onClick={()=>{navigate("/my-bookings"); scroll(0, 0);}} className='border border-primary/40 bg-primary px-3 py-1.5 sm:py-1 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm flex justify-between items-center gap-1 cursor-pointer ml-70 md:ml-0'>Proceed to Book <ArrowRight className='w-4 sm:w-5' /></button>
+            <button onClick={() => {
+              if (user) {
+                navigate("/my-bookings");
+                scroll(0, 0);
+              } else {
+                toast("Login to book tickets");
+              }
+            }} className='border border-primary/40 bg-primary px-3 py-1.5 sm:py-1 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm flex justify-between items-center gap-1 cursor-pointer ml-70 md:ml-0'>Proceed to Book <ArrowRight className='w-4 sm:w-5' /></button>
           </div>
           
           <BlurCircle bottom='-2rem' right="-8rem"/>
