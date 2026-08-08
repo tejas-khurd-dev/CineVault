@@ -9,7 +9,7 @@ const AdminNavbar = () => {
 
 
   return (
-    <div className='w-full border-b border-b-gray-400/20 py-5 px-10 flex justify-between items-center h-21.25'>
+    <div className='w-full fixed border-b border-b-gray-400/20 py-5 px-10 flex justify-between items-center bg-black z-100'>
       <Link to='/'>
         <img src={assets.logo} alt="logo" className='w-36 sm:w-48 md:w-72 h-auto'/>
       </Link>

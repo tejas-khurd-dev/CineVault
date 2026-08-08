@@ -493,7 +493,7 @@ export const dummyDashboardData = {
             "_id": "68352363e96d99513e4221a4",
             "movie": dummyShowsData[0],
             "showDateTime": "2025-06-30T02:30:00.000Z",
-            "showPrice": 59,
+            "showPrice": 200,
             "occupiedSeats": {
                 "A1": "user_2xO4XPCgWWwWq9EHuQxc5UWqIok",
                 "B1": "user_2xO4XPCgWWwWq9EHuQxc5UWqIok",
@@ -504,21 +504,21 @@ export const dummyDashboardData = {
             "_id": "6835238fe96d99513e4221a8",
             "movie": dummyShowsData[1],
             "showDateTime": "2025-06-30T15:30:00.000Z",
-            "showPrice": 81,
+            "showPrice": 250,
             "occupiedSeats": {},
         },
         {
             "_id": "6835238fe96d99513e4221a9",
             "movie": dummyShowsData[2],
             "showDateTime": "2025-06-30T03:30:00.000Z",
-            "showPrice": 81,
+            "showPrice": 150,
             "occupiedSeats": {},
         },
         {
             "_id": "6835238fe96d99513e4221aa",
             "movie": dummyShowsData[3],
             "showDateTime": "2025-07-15T16:30:00.000Z",
-            "showPrice": 81,
+            "showPrice": 200,
             "occupiedSeats": {
                 "A1": "user_2xO4XPCgWWwWq9EHuQxc5UWqIok",
                 "A2": "user_2xO4XPCgWWwWq9EHuQxc5UWqIok",

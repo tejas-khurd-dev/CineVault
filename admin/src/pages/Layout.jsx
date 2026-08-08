@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <AdminNavbar/>
-      <div className="flex">
+      <div className="flex pt-22">
         <AdminSidebar />
 
         <div className='h-[cacl(100vh-85px)] overflow-y-auto my-5 mx-5'>
