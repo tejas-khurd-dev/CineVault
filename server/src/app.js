@@ -14,7 +14,7 @@ app.use(cors())
 app.use(clerkMiddleware())
 
 
-app.get("/", (req,res)=>console.log("server is live"))
+app.get("/", (req,res)=>res.send("server is live"))
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 export default app
