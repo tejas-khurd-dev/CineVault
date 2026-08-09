@@ -13,11 +13,11 @@ const syncUserCreation = inngest.createFunction(
     ]
   },
   async ({ event }) => {
-    const { id, first_name, last_name, email_address, image_url } = event.data;
+    const { id, first_name, last_name, email_addresses, image_url } = event.data;
 
     const userData = {
       _id: id,
-      email: email_address[0].email_address,
+      email: email_addresses[0].email_address,
       name: `${first_name} ${last_name}`,
       image: image_url
     };
@@ -50,10 +50,10 @@ const syncUserUpdation = inngest.createFunction(
     ]
   },
   async ({ event }) => {
-    const { id, first_name, last_name, email_address, image_url } = event.data;
+    const { id, first_name, last_name, email_addresses, image_url } = event.data;
 
     const userData = {
-      email: email_address[0].email_address,
+      email: email_addresses[0].email_address,
       name: `${first_name} ${last_name}`,
       image: image_url
     };
@@ -62,7 +62,7 @@ const syncUserUpdation = inngest.createFunction(
   }
 );
 
-// Create an empty array where we'll export future Inngest functions
+// Create an array where we'll export future Inngest functions
 export const functions = [
   syncUserCreation,
   syncUserDeletion,
