@@ -1,48 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { assets } from '../assets/assets'
-import {Link} from 'react-router-dom'
-import {useUser, useClerk, UserButton} from '@clerk/react'
+import { Link } from 'react-router-dom'
+import { LogOutIcon } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
 
 const AdminNavbar = () => {
+  const { user, handleLogout } = useAuth()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const {user} = useUser()
+  if (user?.role !== 'admin') return null
 
+  const onLogout = async () => {
+    await handleLogout()
+    setIsMenuOpen(false)
+  }
 
   return (
-    <div className='w-full fixed border-b border-b-gray-400/20 py-5 px-10 flex justify-between items-center bg-black z-100'>
+    <div className='w-full fixed border-b border-b-gray-400/20 py-4 px-5 sm:px-8 flex justify-between items-center bg-black z-100'>
       <Link to='/'>
-        <img src={assets.logo} alt="logo" className='w-36 sm:w-48 md:w-72 h-auto'/>
+        <img src={assets.logo} alt="logo" className='w-32 sm:w-40 h-auto' />
       </Link>
-      
-      <UserButton
-        appearance={{
-          elements: {
-  
-            userButtonAvatarBox: {
-              width: '2.8rem',
-              height: '2.8rem',
-              backgroundImage: `url(${assets.adminPFP})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            },
-            userButtonAvatarImage: {
-              display: 'none',
-            },
 
+      <div className='relative'>
+        <button
+          onClick={() => setIsMenuOpen((v) => !v)}
+          className='flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-2 py-1'
+        >
+          <img
+            src={assets.adminPFP}
+            alt={user?.username || 'Admin'}
+            className='w-8 h-8 rounded-full object-cover'
+          />
+          <span className='hidden sm:block text-sm font-medium'>{user.username}</span>
+        </button>
 
-            userPreviewAvatarBox: {
-              width: '3rem',
-              height: '3rem',
-              backgroundImage: `url(${assets.adminPFP})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            },
-            userPreviewAvatarImage: {
-              display: 'none',
-            },
-          },
-        }}
-      />
+        {isMenuOpen && (
+          <div className='absolute right-0 mt-3 w-40 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl shadow-xl overflow-hidden'>
+            <button
+              onClick={onLogout}
+              className='w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5'
+            >
+              <LogOutIcon size={16} />
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

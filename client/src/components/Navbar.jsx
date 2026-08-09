@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
-import { MenuIcon, Search, Ticket, XIcon } from 'lucide-react'
-import { useState } from 'react'
-import { useClerk, UserButton, useUser } from '@clerk/react'
+import { MenuIcon, Search, Ticket, XIcon, LogOutIcon } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
 
-    const {user} = useUser()
-    const {openSignIn} = useClerk()
+    const {user, handleLogout} = useAuth()
 
     const navigate = useNavigate()
 
@@ -31,22 +30,59 @@ const Navbar = () => {
         </div>
 
         
-        <div className='flex items-center justify-between space-x-6'>
+        <div className='relative flex items-center justify-between space-x-6'>
             <Search className='w-5 h-5 md:w-8 md:h-8 cursor-pointer'/>
             
             {
                 !user ? (
-                    <button onClick={openSignIn} className='rounded-2xl bg-primary px-4 md:px-5 py-1 text-lg'>Login</button>
+                    <button onClick={() => navigate("/login")} className='rounded-2xl bg-primary px-4 md:px-5 py-1 text-lg'>Login</button>
                 ): (
-                    <UserButton appearance={{
-                        elements: {
-                            userButtonAvatarBox:  "w-8! h-8! md:w-10! md:h-10!",
-                        }
-                    }}>
-                        <UserButton.MenuItems>
-                            <UserButton.Action label='My Bookings' labelIcon={<Ticket size={16} />} onClick={()=>{navigate('/my-bookings'); scroll(0,0)}}/>
-                        </UserButton.MenuItems>
-                    </UserButton>
+                    <div className='relative'>
+                      <button
+                        onClick={() => setIsUserMenuOpen((value) => !value)}
+                        className='flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5'
+                      >
+                        {user.profileImage ? (
+                          <img
+                            src={user.profileImage}
+                            alt={user.username}
+                            className='w-8 h-8 rounded-full object-cover'
+                          />
+                        ) : (
+                          <div className='w-8 h-8 rounded-full bg-primary flex items-center justify-center text-sm font-semibold'>
+                            {user.username?.charAt(0).toUpperCase()}
+                          </div>
+                        )}
+                        <span className='hidden sm:block text-sm max-w-28 truncate'>{user.username}</span>
+                      </button>
+
+                      {isUserMenuOpen && (
+                        <div className='absolute right-0 mt-3 w-48 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl shadow-xl overflow-hidden'>
+                          <button
+                            onClick={() => {
+                              navigate('/my-bookings')
+                              scrollTo(0, 0)
+                              setIsUserMenuOpen(false)
+                            }}
+                            className='w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5'
+                          >
+                            <Ticket size={16} />
+                            My Bookings
+                          </button>
+                          <button
+                            onClick={async () => {
+                              await handleLogout()
+                              setIsUserMenuOpen(false)
+                              navigate('/')
+                            }}
+                            className='w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5 border-t border-white/10'
+                          >
+                            <LogOutIcon size={16} />
+                            Logout
+                          </button>
+                        </div>
+                      )}
+                    </div>
                 )
             }
         </div>

@@ -5,10 +5,14 @@ import BlurCircle from '../components/BlurCircle'
 import dateFormat from '../lib/dateFormat'
 import timeFormat from '../lib/timeFormat'
 import showTimeFormat from '../lib/showTimeFormat'
+import { useAuth } from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 
 const MyBookings = () => {
 
   const currency = import.meta.env.VITE_CURRENCY
+  const { user, loading } = useAuth()
+  const navigate = useNavigate()
   
   const [bookings, setBookings] = useState([])
   
@@ -22,6 +26,26 @@ const MyBookings = () => {
   useEffect(()=>{
     getMyBookings()
   },[])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (!user) {
+    return (
+      <div className='relative overflow-x-hidden pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 sm:px-8 md:px-16 lg:px-24 min-h-screen pb-8 flex items-center justify-center'>
+        <div className='text-center'>
+          <h1 className='text-xl sm:text-2xl font-bold'>Sign in to see your bookings</h1>
+          <button
+            onClick={() => navigate('/login')}
+            className='mt-6 border border-primary/40 bg-primary px-4 py-2 rounded-3xl text-sm sm:text-base'
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return !isLoading ? (
     <div className='relative overflow-x-hidden pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 sm:px-8 md:px-16 lg:px-24 min-h-screen pb-8'>

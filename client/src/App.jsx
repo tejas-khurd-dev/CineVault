@@ -10,8 +10,15 @@ import MyBookings from './pages/MyBookings'
 import Footer from './components/Footer'
 import { Toaster } from 'react-hot-toast'
 import NotFound from './pages/NotFound'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import VerifyOTP from './pages/VerifyOTP'
+import { useLocation } from 'react-router-dom'
+
 
 const App = () => {
+  const location = useLocation()
+  const isAuthRoute = ['/login', '/register', '/verify-otp'].includes(location.pathname)
 
   return (
     <>
@@ -20,7 +27,6 @@ const App = () => {
         position="top-center"
         containerStyle={{
           top: 88,
-          transform: "translateX(60px)",
         }}
         toastOptions={{
           style: {
@@ -31,10 +37,13 @@ const App = () => {
         }}
       />
       
-      <Navbar />
+      {!isAuthRoute && <Navbar />}
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/verify-otp' element={<VerifyOTP />} />
         <Route path='/favourite' element={<Favourite />} />
         <Route path='/movies' element={<Movies />} />
         <Route path='/moviedetails/:id' element={<MovieDetails />} />
@@ -43,7 +52,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      <Footer />
+      {!isAuthRoute && <Footer />}
 
     </>
   )

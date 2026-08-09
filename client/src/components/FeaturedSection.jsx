@@ -19,7 +19,7 @@ const FeaturedSection = () => {
 
         <BlurCircle top="35rem" left="10rem"/>
 
-        <div className='flex flex-wrap justify-center items-center gap-4 md:gap-7 lg:gap-12'>
+        <div className='flex flex-wrap justify-center items-center gap-4 md:gap-7 lg:gap-12 xl:gap-15'>
             {dummyShowsData.slice(0,8).map((movie)=><MovieCard key={movie._id} movie={movie}/>)}
         </div>
        
