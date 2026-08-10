@@ -15,7 +15,7 @@ const upload = multer({
             path.extname(file.originalname).toLowerCase()
         );
 
-        if (isAllowedMime && isAllowedExt) {
+        if (isAllowedMime || isAllowedExt) {
             return cb(null, true);
         }
 
@@ -27,4 +27,6 @@ const upload = multer({
     },
 });
 
-export default upload;
+const storePFP = upload.single("pfp");
+
+export default storePFP;
