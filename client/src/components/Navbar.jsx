@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
-import { MenuIcon, Search, Ticket, XIcon, LogOutIcon } from 'lucide-react'
+import { MenuIcon, Search, Ticket, XIcon, LogOutIcon, User } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 
 const Navbar = () => {
@@ -57,29 +57,47 @@ const Navbar = () => {
                       </button>
 
                       {isUserMenuOpen && (
-                        <div className='absolute right-0 mt-3 w-48 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl shadow-xl overflow-hidden'>
+                        <div className="absolute right-0 mt-3 w-48 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl shadow-xl overflow-hidden">
+                          
+                          {/* Profile */}
                           <button
                             onClick={() => {
-                              navigate('/my-bookings')
+                              navigate("/profile")
                               scrollTo(0, 0)
                               setIsUserMenuOpen(false)
                             }}
-                            className='w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5'
+                            className="w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5"
+                          >
+                            <User size={16} />
+                            Profile
+                          </button>
+
+                          {/* My Bookings */}
+                          <button
+                            onClick={() => {
+                              navigate("/my-bookings")
+                              scrollTo(0, 0)
+                              setIsUserMenuOpen(false)
+                            }}
+                            className="w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5 border-t border-white/10"
                           >
                             <Ticket size={16} />
                             My Bookings
                           </button>
+
+                          {/* Logout */}
                           <button
                             onClick={async () => {
                               await handleLogout()
                               setIsUserMenuOpen(false)
-                              navigate('/')
+                              navigate("/")
                             }}
-                            className='w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5 border-t border-white/10'
+                            className="w-full flex items-center gap-2 px-4 py-3 text-left hover:bg-white/5 border-t border-white/10"
                           >
                             <LogOutIcon size={16} />
                             Logout
                           </button>
+
                         </div>
                       )}
                     </div>

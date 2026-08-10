@@ -10,7 +10,7 @@ const Layout = () => {
       <div className="flex pt-22">
         <AdminSidebar />
 
-        <div className='h-[cacl(100vh-85px)] overflow-y-auto my-5 mx-5'>
+        <div className='flex-1 h-[calc(100vh-85px)] overflow-y-auto my-5 mx-5'>
           <Outlet />
         </div>
       </div>

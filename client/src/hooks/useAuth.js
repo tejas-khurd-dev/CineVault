@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../services/auth.context.jsx";
+import { AuthUserContext } from "../services/auth.user.context.jsx";
 import { getMe, login, logout, registration, sendOTP, googleLogin } from "../services/auth.api";
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
+  const context = useContext(AuthUserContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within AuthProvider");
+    throw new Error("useAuth must be used within AuthUserProvider");
   }
 
   const { user, setUser, loading, setLoading, error, setError } = context;
@@ -79,8 +79,6 @@ export const useAuth = () => {
     }
   };
 
-
-
   const handleLogout = async () => {
     setLoading(true);
     setError("");
@@ -95,7 +93,6 @@ export const useAuth = () => {
       setLoading(false);
     }
   };
-
 
 
   useEffect(() => {
@@ -114,15 +111,5 @@ export const useAuth = () => {
     getAndSetUser();
   }, [setLoading, setUser]);
 
-  return {
-    user,
-    loading,
-    error,
-    setError,
-    handleSendOTP,
-    handleRegistration,
-    handleLogin,
-    handleLogout,
-    handleGoogleLogin
-  };
+  return {user, loading, error, setError, handleSendOTP, handleRegistration, handleLogin, handleLogout, handleGoogleLogin,};
 };

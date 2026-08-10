@@ -14,6 +14,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import VerifyOTP from './pages/VerifyOTP'
 import { useLocation } from 'react-router-dom'
+import Profile from './pages/Profile'
 
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/moviedetails/:id' element={<MovieDetails />} />
         <Route path='/seatlayout/:id/:date' element={<SeatLayout />} />
         <Route path='/my-bookings' element={<MyBookings />} />
+        <Route path='/profile' element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

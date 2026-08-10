@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../services/auth.context.jsx";
-import { getMe, login, logout, googleLogin } from "../services/auth.api";
+import { AuthUserContext } from "../services/auth.user.context.jsx";
+import { getMe, login, logout, googleLogin, updateUserInfo } from "../services/auth.api.js";
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
+  const context = useContext(AuthUserContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within AuthProvider");
+    throw new Error("useAuth must be used within AuthUserProvider");
   }
 
   const { user, setUser, loading, setLoading, error, setError } = context;
@@ -61,6 +61,23 @@ export const useAuth = () => {
     }
   };
 
+  const handleUpdateUserInfo = async ({ username, pfp }) => {
+    setLoading(true);
+    setError("");
+    try {
+      const data = await updateUserInfo({ username, pfp });
+      setUser(data.user);
+      return data.user;
+    } catch (error) {
+      const message = error?.response?.data?.msg || error?.message || "Something went wrong";
+      setError(message);
+      console.error(message);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const getAndSetUser = async () => {
       try {
@@ -77,13 +94,5 @@ export const useAuth = () => {
     getAndSetUser();
   }, [setLoading, setUser]);
 
-  return {
-    user,
-    loading,
-    error,
-    setError,
-    handleLogin,
-    handleLogout,
-    handleGoogleLogin
-  };
+  return { user, loading, error, setError, handleLogin, handleLogout, handleGoogleLogin, handleUpdateUserInfo };
 };

@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import AdminGuard from './components/AdminGuard'
 import { Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import Profile from './pages/Profile'
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="add-shows" element={<AddShows />} />
           <Route path="list-shows" element={<ListShows />} />
           <Route path="list-bookings" element={<ListBookings />} />
+          <Route path='profile' element={<Profile />} />
         </Route>
       </Routes>
     </>
