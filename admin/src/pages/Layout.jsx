@@ -1,16 +1,16 @@
 import React from 'react'
-import AdminNavbar from '../components/AdminNavbar'
-import AdminSidebar from '../components/AdminSidebar'
+import Navbar from '../components/Navbar'
+import Sidebar from '../components/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
     <>
-      <AdminNavbar/>
+      <Navbar/>
       <div className="flex pt-22">
-        <AdminSidebar />
+        <Sidebar />
 
-        <div className='flex-1 h-[calc(100vh-85px)] overflow-y-auto my-5 mx-5'>
+        <div className='flex-1 overflow-y-auto my-5 mx-5 no-scrollbar'>
           <Outlet />
         </div>
       </div>

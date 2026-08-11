@@ -28,17 +28,10 @@ const movieSchema = new mongoose.Schema(
       required: true,
     },
     genres: [{ type: String }],
-    releaseDate: {
-      type: Date,
-      required: true,
-    },
+    
     originalLanguage: {
       type: String,
       default: "en",
-    },
-    tagline: {
-      type: String,
-      reqired: true
     },
     runtime: {
       type: Number, // minutes

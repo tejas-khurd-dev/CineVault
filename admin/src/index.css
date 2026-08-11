@@ -18,3 +18,12 @@ body{
     cursor: url("/cursor.png") 0 0, auto;
     overflow-x: hidden;
 }
+
+.no-scrollbar{
+    scrollbar-width: none;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;           
+  scrollbar-color: #811528 transparent; 
+}

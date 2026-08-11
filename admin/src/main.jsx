@@ -3,11 +3,20 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthUserProvider } from './services/auth.user.context.jsx'
+import { MovieProvider } from './services/movie.context.jsx'
+import { CastProvider } from './services/cast.context.jsx'
+import { ShowProvider } from './services/show.context.jsx'
 
 createRoot(document.getElementById('root')).render(
   <AuthUserProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <MovieProvider>
+      <CastProvider>
+        <ShowProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ShowProvider>
+      </CastProvider>
+    </MovieProvider>
   </AuthUserProvider>
 )

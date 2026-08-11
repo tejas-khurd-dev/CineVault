@@ -1,6 +1,8 @@
 import castModel from "../models/cast.model.js";
 import movieModel from "../models/movie.model.js";
 import ImageKit from "imagekit";
+import showModel from "../models/show.model.js";
+import favouriteMovieListModel from "../models/favouriteMovieList.model.js";
 
 const imagekit = new ImageKit({
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
@@ -19,15 +21,15 @@ const randomVoteCount = (min = 5000, max = 13000) => {
 // done
 export const handleAddMovie = async (req, res) => {
     try {
-        const { title, overview, genres, releaseDate, originalLanguage, tagline, runtime } = req.body;
+        const { title, overview, genres, originalLanguage, runtime } = req.body;
 
         const posterFile = req.files?.poster?.[0];
         const backdropFile = req.files?.backdrop?.[0];
 
-        if (!title || !overview || !releaseDate || !genres || !tagline || !runtime) {
+        if (!title || !overview || !genres || !runtime) {
             return res.status(400).json({
                 success: false,
-                message: "Title, overview, release date, genres, tagline, and runtime are required",
+                message: "Title, overview, genres, and runtime are required",
             });
         }
 
@@ -69,9 +71,7 @@ export const handleAddMovie = async (req, res) => {
             backdropPath: backdropUpload.url,
             backdropFileId: backdropUpload.fileId,
             genres: parsedGenres,
-            releaseDate,
             originalLanguage: originalLanguage || "en",
-            tagline,
             runtime: Number(runtime),
             voteAverage: randomVoteAverage(),
             voteCount: randomVoteCount(),
@@ -94,7 +94,7 @@ export const handleAddMovie = async (req, res) => {
 // done
 export const getAllMovies = async (req, res) => {
     try {
-        const movies = await movieModel.find().sort({ createdAt: -1 });
+        const movies = await movieModel.find().sort({ createdAt: 1 });
 
         return res.status(200).json({
             success: true,
@@ -169,16 +169,19 @@ export const handleDeleteMovie = async (req, res) => {
  
      
         await castModel.deleteMany({ movie: moveiId });
+
+        await showModel.deleteMany({movie: moveiId})
  
+        await favouriteMovieListModel.deleteMany({movie: moveiId})
   
         try {
-            await imagekit.deleteFile(movie.profileFileId);
+            await imagekit.deleteFile(movie.posterFileId);
         } catch (deleteError) {
             console.error("Error deleting poster from ImageKit:", deleteError);
         }
  
         try {
-            await imagekit.deleteFile(movie.profileFileId);
+            await imagekit.deleteFile(movie.backdropFileId);
         } catch (deleteError) {
             console.error("Error deleting backdrop from ImageKit:", deleteError);
         }

@@ -1,5 +1,7 @@
 import ImageKit from "imagekit";
 import userModel from "../models/user.model.js";
+import movieModel from "../models/movie.model.js";
+import favouriteMovieListModel from "../models/favouriteMovieList.model.js";
 
 const imagekit = new ImageKit({
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
@@ -71,4 +73,59 @@ export const handleUpdateUser = async (req, res) => {
             message: "Something went wrong while updating user",
         });
     }
+};
+
+export const handleUserFavouriteMovies = async (req, res) => {
+  try {
+    const { movieId } = req.params;
+    const userId = req.user.id;
+
+    const user = await userModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const movie = await movieModel.findById(movieId);
+
+    if (!movie) {
+      return res.status(404).json({
+        success: false,
+        message: "Movie not found",
+      });
+    }
+
+    const existingFavourite = await favouriteMovieListModel.findOne({
+      user: userId,
+      movie: movieId,
+    });
+
+    if (existingFavourite) {
+      return res.status(409).json({
+        success: false,
+        message: "Movie already added to favourites",
+      });
+    }
+
+    const favourite = await favouriteMovieListModel.create({
+      user: userId,
+      movie: movieId,
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Movie added to favourites",
+      favourite,
+    });
+  } catch (error) {
+    console.error("Error adding movie to favourites:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong while adding movie to favourites",
+    });
+  }
 };

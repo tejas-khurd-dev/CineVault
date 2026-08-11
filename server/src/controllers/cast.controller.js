@@ -46,6 +46,8 @@ export const handleAddCast = async (req, res) => {
             profileFileId: uploadResponse.fileId,
         });
 
+        console.log("NEW CAST:", newCast);
+
         return res.status(201).json({
             success: true,
             message: "Cast member added successfully",
@@ -67,7 +69,7 @@ export const getCastsByMovie = async (req, res) => {
 
         const casts = await castModel
             .find({ movie: movieId })
-            .select("name character profile_path");
+            .select("name character profilePath");
 
         return res.status(200).json({
             success: true,

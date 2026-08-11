@@ -5,7 +5,7 @@ const blackListSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: "3d",
+    expires: "1d",
   },
 });
 
