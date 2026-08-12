@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { MovieContext } from "../services/movie.context.jsx";
 import { addMovie, getAllMovies, getMovieById, deleteMovie } from "../services/movie.api.js";
+import { CastContext } from "../services/cast.context.jsx";
 
 export const useMovie = () => {
-  const context = useContext(MovieContext);
+  const movieContext = useContext(MovieContext);
+  const castContext = useContext(CastContext)
 
-  if (!context) {
+  if (!movieContext || !castContext) {
     throw new Error("useMovie must be used within MovieProvider");
   }
 
-  const { movies, setMovies, movie, setMovie, loading, setLoading, error, setError } = context;
+  const { movies, setMovies, movie, setMovie, loading, setLoading, error, setError } = movieContext;
+  const {casts, setCasts} = castContext
 
   const handleAddMovie = async (formData) => {
     setLoading(true);
@@ -51,6 +54,7 @@ export const useMovie = () => {
     try {
       const data = await getMovieById(movieId);
       setMovie(data.movieDetail.movie);
+      setCasts(data.movieDetail.casts);
       return data.movieDetail.movie;
     } catch (error) {
       const message = error?.response?.data?.message || error?.message || "Something went wrong";
@@ -89,5 +93,6 @@ export const useMovie = () => {
     handleGetAllMovies,
     handleGetMovieById,
     handleDeleteMovie,
+    casts
   };
 };

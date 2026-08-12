@@ -14,7 +14,7 @@ const MovieDetails = () => {
 
   const navigate = useNavigate()
 
-  const { movie, movies, handleGetMovieById, handleGetAllMovies } = useMovie()
+  const { movie, movies, handleGetMovieById, handleGetAllMovies, casts } = useMovie()
   const { shows, handleGetShowsByMovie } = useShow()
 
   useEffect(() => {
@@ -56,9 +56,9 @@ const MovieDetails = () => {
       </div>
 
       <div>
-        <h3 className='text-base sm:text-lg md:text-xl font-bold text-white/90 [word-spacing:2px] pt-10 sm:pt-16 md:pt-24 lg:pt-30'>Your Favourite Cast</h3>
+        {casts?.length > 0 && <h3 className='text-base sm:text-lg md:text-xl font-bold text-white/90 [word-spacing:2px] pt-10 sm:pt-16 md:pt-24 lg:pt-30'>Your Favourite Cast</h3>}
         <div className='flex gap-4 sm:gap-6 md:gap-10 overflow-x-auto items-center no-scrollbar py-6 sm:py-8 md:py-12'>
-          {movie.casts?.map((cast) => (
+          {casts?.map((cast) => (
             <div key={cast._id} className='flex flex-col items-center text-gray-400 font-medium space-y-2 sm:space-y-3 shrink-0'>
               <img src={cast.profilePath} alt={cast.name} className='rounded-full border-2 border-white/10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-30 lg:h-30 object-cover shadow-[0_0_20px_rgba(239,68,68,0.6)]' />
               <p className='mx-auto text-xs sm:text-sm md:text-base'>{cast.name}</p>
