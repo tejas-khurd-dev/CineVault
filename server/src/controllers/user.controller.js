@@ -75,57 +75,110 @@ export const handleUpdateUser = async (req, res) => {
     }
 };
 
-export const handleUserFavouriteMovies = async (req, res) => {
-  try {
-    const { movieId } = req.params;
-    const userId = req.user.id;
+export const addUserFavouriteMovie = async (req, res) => {
+    try {
+        const { movieId } = req.params;
+        const userId = req.user.id;
 
-    const user = await userModel.findById(userId);
+        const movie = await movieModel.findById(movieId);
 
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "User not found",
-      });
+        if (!movie) {
+            return res.status(404).json({
+                success: false,
+                message: "Movie not found",
+            });
+        }
+
+        const existingFavourite = await favouriteMovieListModel.findOne({
+            user: userId,
+            movie: movieId,
+        });
+
+        if (existingFavourite) {
+            return res.status(409).json({
+                success: false,
+                message: "Movie already added to favourites",
+            });
+        }
+
+        const favourite = await favouriteMovieListModel.create({
+            user: userId,
+            movie: movieId,
+        });
+
+        return res.status(201).json({
+            success: true,
+            message: "Movie added to favourites",
+            favourite,
+        });
+    } catch (error) {
+        console.error("Error adding movie to favourites:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while adding movie to favourites",
+        });
     }
+};
 
-    const movie = await movieModel.findById(movieId);
+export const deleteUserFavouriteMovie = async (req, res) => {
+    try {
+        const { movieId } = req.params;
+        const userId = req.user.id;
 
-    if (!movie) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found",
-      });
+        const movie = await movieModel.findById(movieId);
+
+        if (!movie) {
+            return res.status(404).json({
+                success: false,
+                message: "Movie not found",
+            });
+        }
+
+        const favourite = await favouriteMovieListModel.findOneAndDelete({
+            user: userId,
+            movie: movieId,
+        });
+
+        if (!favourite) {
+            return res.status(404).json({
+                success: false,
+                message: "Movie not present in favourites",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Movie removed from favourites",
+            favourite,
+        });
+    } catch (error) {
+        console.error("Error deleting movie from favourites:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while deleting movie from favourites",
+        });
     }
+};
 
-    const existingFavourite = await favouriteMovieListModel.findOne({
-      user: userId,
-      movie: movieId,
-    });
+export const getUserFavouriteMovies = async (req, res) => {
+    try {
+        const userId = req.user.id;
 
-    if (existingFavourite) {
-      return res.status(409).json({
-        success: false,
-        message: "Movie already added to favourites",
-      });
+        const favourites = await favouriteMovieListModel
+            .find({ user: userId })
+            .populate("movie");
+
+        return res.status(200).json({
+            success: true,
+            favourites,
+        });
+    } catch (error) {
+        console.error("Error fetching favourite movies:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while fetching favourite movies",
+        });
     }
-
-    const favourite = await favouriteMovieListModel.create({
-      user: userId,
-      movie: movieId,
-    });
-
-    return res.status(201).json({
-      success: true,
-      message: "Movie added to favourites",
-      favourite,
-    });
-  } catch (error) {
-    console.error("Error adding movie to favourites:", error);
-
-    return res.status(500).json({
-      success: false,
-      message: "Something went wrong while adding movie to favourites",
-    });
-  }
 };

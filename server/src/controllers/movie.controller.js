@@ -122,7 +122,7 @@ export const getMovieById = async (req, res) => {
             });
         }
 
-        const casts = await castModel.find({ movie: movieId }).select("name character profile_path");
+        const casts = await castModel.find({ movie: movieId }).select("name character profilePath");
 
         return res.status(200).json({
             success: true,
