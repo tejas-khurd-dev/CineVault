@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import BlurCircle from './BlurCircle'
-import { dummyDateTimeData } from '../assets/assets'
 import dateFormat from '../lib/dateFormat'
 import { useNavigate, useParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
-const DateSelection = () => {
+const DateSelection = ({ dateTime = [] }) => {
 
   const {id} = useParams()
 
@@ -13,12 +12,25 @@ const DateSelection = () => {
 
   const navigate = useNavigate()
 
+  // Multiple shows can share the same date at different times — collapse to unique dates for this picker
+  const uniqueDates = [...new Set(dateTime.map((show) => new Date(show.date).toISOString().slice(0, 10)))]
+
   const onBookHnadler = () =>{
     if(!selected){
       return toast("Please select a date")
     }
     navigate(`/seatlayout/${id}/${selected}`)
     scroll(0,0)
+  }
+
+  if (uniqueDates.length === 0) {
+    return (
+      <div className='px-6 md:px-16 lg:px-24 xl:px-44 pt-10 md:pt-15'>
+        <div className='relative bg-primary/10 border border-primary rounded-md py-5 px-4 md:px-6'>
+          <p className='text-sm md:text-base text-gray-400'>No showtimes available for this movie yet.</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -30,10 +42,10 @@ const DateSelection = () => {
 
         <div className='flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 md:gap-8 px-3 md:px-5 py-2'>
           <div className='flex justify-start items-center gap-4 md:gap-8 px-2 md:px-5 py-2 overflow-x-auto no-scrollbar mx-0 md:mx-2'> 
-            {dummyDateTimeData.map((i) => {
-              const { day, month } = dateFormat(i.date)
+            {uniqueDates.map((date) => {
+              const { day, month } = dateFormat(date)
               return (
-                <button  onClick={()=> setSelected(selected===i.date?null:i.date)} key={i.date} className={`shrink-0 border border-primary px-4 md:px-5 py-2 rounded-md text-sm md:text-base ${selected === i.date? "bg-primary" : "bg-transparent"}`}>
+                <button onClick={()=> setSelected(selected===date?null:date)} key={date} className={`shrink-0 border border-primary px-4 md:px-5 py-2 rounded-md text-sm md:text-base ${selected === date? "bg-primary" : "bg-transparent"}`}>
                   {day} <br /> {month}
                 </button>
               )

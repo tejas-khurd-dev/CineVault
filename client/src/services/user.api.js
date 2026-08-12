@@ -21,3 +21,33 @@ export async function updateUserInfo({ username, pfp }) {
     throw error;
   }
 }
+
+export async function addFavourite(movieId) {
+  try {
+    const response = await api.post(`/favourite/add/${movieId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export async function removeFavourite(movieId) {
+  try {
+    const response = await api.delete(`/favourite/delete/${movieId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export async function getFavourites() {
+  try {
+    const response = await api.get("/favourite/movies");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}

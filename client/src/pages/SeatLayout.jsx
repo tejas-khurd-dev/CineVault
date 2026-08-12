@@ -1,33 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { assets, dummyDateTimeData, dummyShowsData } from '../assets/assets'
+import { assets } from '../assets/assets'
 import Loading from '../components/Loading'
 import { ArrowRight, Clock } from 'lucide-react'
-import showTimeFormat from '../lib/showTimeFormat'
 import BlurCircle from '../components/BlurCircle'
 import toast from 'react-hot-toast'
 import { useAuth } from '../hooks/useAuth'
+import { useShow } from '../hooks/useShow.js'
+
+// show.time is stored as a plain "HH:MM" 24-hour string (not a full datetime),
+// so it needs its own light formatter rather than the old showTimeFormat lib
+const formatTime = (time) => {
+  const [hourStr, minute] = time.split(':')
+  let hour = Number(hourStr)
+  const period = hour >= 12 ? 'PM' : 'AM'
+  hour = hour % 12 || 12
+  return `${hour}:${minute} ${period}`
+}
 
 const SeatLayout = () => {
 
   const {id, date} = useParams()
 
   const {user} = useAuth()
+  const { shows, loading, handleGetShowsByMovie } = useShow()
 
-  const [selectedDate, setSelectedDate] = useState(null)
-
-  const [selectedShow, setSelectedShow] = useState(null)
+  const [chosenShow, setChosenShow] = useState(null) // the specific show doc for the selected time
 
   const [selectedSeats, setSelectedSeats] = useState([])
-
-  const [selectedTime, setSelectedTime] = useState(null)
 
   const navigate = useNavigate()
 
   const groupRows = [['A','B'], ['C','D'], ['E','F'], ['G','H'], ['I','J']]
 
+  useEffect(() => {
+    if (!id) return
+    handleGetShowsByMovie(id)
+  }, [id])
+
+  // Shows for this movie, narrowed down to the date picked on the previous page
+  const showsForDate = shows.filter(
+    (show) => new Date(show.date).toISOString().slice(0, 10) === date
+  )
+
   const handleSeatClick = (seatId) => {
-    if (!selectedTime) return toast("Please select time");
+    if (!chosenShow) return toast("Please select time");
 
     if (selectedSeats.includes(seatId)) {
       setSelectedSeats(selectedSeats.filter((seat) => seat !== seatId));
@@ -58,24 +75,50 @@ const SeatLayout = () => {
     </div>
   );
 
-  useEffect(()=>{
-    setSelectedShow(dummyShowsData.find(i=>i.id===Number(id)))
-    setSelectedDate(dummyDateTimeData.find(i=>i.date===date))
-  }, [])
-  
+  const onProceed = () => {
+    if (!user) {
+      toast("Login to book tickets");
+      navigate("/login");
+      return;
+    }
+    if (!chosenShow) {
+      toast("Please select a time");
+      return;
+    }
+    if (selectedSeats.length === 0) {
+      toast("Please select at least one seat");
+      return;
+    }
+    // Booking creation isn't built yet — this just navigates for now,
+    // matching the previous placeholder behavior.
+    navigate("/my-bookings");
+    scroll(0, 0);
+  }
 
-  return selectedShow ? (
+  if (loading && shows.length === 0) {
+    return <Loading/>
+  }
+
+  return (
     <div className='flex flex-col md:flex-row pt-20 sm:pt-24 md:pt-40 lg:pt-48 xl:pt-55 pb-5 sm:pb-8 md:pb-10 px-4 sm:px-6 md:px-10 lg:px-16 relative justify-center items-center md:items-start gap-6 sm:gap-8 md:gap-10 overflow-x-hidden'>
       {/* Available Time */}
       <div className='w-full max-w-xs sm:max-w-sm md:max-w-none md:w-64 lg:w-70 md:sticky md:-top-12 bg-primary/15 border border-primary rounded-md sm:rounded-lg py-3 sm:py-4 md:-mt-8'>
         <h3 className='text-base sm:text-lg font-bold text-white/90 [word-spacing:2px] px-4 sm:px-6 md:px-10'>Available Timing</h3>
         <div className='overflow-y-auto max-h-40 sm:max-h-45 no-scrollbar'>
-          {selectedDate.times.map((i) => (
-            <div onClick={()=>setSelectedTime(selectedTime===i.time?null:i.time)} key={i.showId} className={`flex items-center gap-2 px-3 sm:px-4 mt-3 sm:mt-4 py-1.5 sm:py-2 max-w-32 sm:max-w-35 rounded-r-lg ${selectedTime === i.time ? "bg-primary": "bg-transparent"}`}>
-              <Clock className='w-3.5 sm:w-4' />
-              <p className='text-xs sm:text-sm'>{showTimeFormat(i.time)}</p>
-            </div>
-          ))}
+          {showsForDate.length === 0 ? (
+            <p className='px-4 sm:px-6 md:px-10 mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400'>No showtimes for this date.</p>
+          ) : (
+            showsForDate.map((show) => (
+              <div
+                onClick={()=>setChosenShow(chosenShow?._id===show._id?null:show)}
+                key={show._id}
+                className={`flex items-center gap-2 px-3 sm:px-4 mt-3 sm:mt-4 py-1.5 sm:py-2 max-w-32 sm:max-w-35 rounded-r-lg cursor-pointer ${chosenShow?._id === show._id ? "bg-primary": "bg-transparent"}`}
+              >
+                <Clock className='w-3.5 sm:w-4' />
+                <p className='text-xs sm:text-sm'>{formatTime(show.time)}</p>
+              </div>
+            ))
+          )}
         </div>
       </div>
       
@@ -105,22 +148,12 @@ const SeatLayout = () => {
           </div>
 
           <div className='flex justify-center items-center mt-8 sm:mt-10 md:mt-12'>
-            <button onClick={() => {
-              if (user) {
-                navigate("/my-bookings");
-                scroll(0, 0);
-              } else {
-                toast("Login to book tickets");
-                navigate("/login");
-              }
-            }} className='border border-primary/40 bg-primary px-3 py-1.5 sm:py-1 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm flex justify-between items-center gap-1 cursor-pointer ml-70 md:ml-0'>Proceed to Book <ArrowRight className='w-4 sm:w-5' /></button>
+            <button onClick={onProceed} className='border border-primary/40 bg-primary px-3 py-1.5 sm:py-1 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm flex justify-between items-center gap-1 cursor-pointer ml-70 md:ml-0'>Proceed to Book <ArrowRight className='w-4 sm:w-5' /></button>
           </div>
           
           <BlurCircle bottom='-2rem' right="-8rem"/>
       </div>
     </div>
-  ) : (
-    <Loading/>
   )
 }
 

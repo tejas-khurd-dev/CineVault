@@ -8,6 +8,7 @@ import DateSelection from '../components/DateSelection'
 import Loading from '../components/Loading'
 import { useMovie } from '../hooks/useMovie.js'
 import { useShow } from '../hooks/useShow.js'
+import { useUser } from '../hooks/useUser.js'
 
 const MovieDetails = () => {
   const {id} = useParams()
@@ -16,6 +17,7 @@ const MovieDetails = () => {
 
   const { movie, movies, handleGetMovieById, handleGetAllMovies, casts } = useMovie()
   const { shows, handleGetShowsByMovie } = useShow()
+  const { isFavourite, handleGetFavourites, handleToggleFavourite } = useUser()
 
   useEffect(() => {
     if (!id) return
@@ -48,9 +50,15 @@ const MovieDetails = () => {
           <div className='flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-start items-center mt-1 sm:mt-2'>
             <button className='border border-white/10 bg-gray-700 px-3 sm:px-4 py-1.5 sm:py-2 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm md:text-xl flex justify-between items-center gap-1 cursor-pointer'>Watch Trailer</button>
             <a href='#dataSelect' className='border border-primary/40 bg-primary px-3 sm:px-4 py-1.5 sm:py-2 my-1 sm:my-2 rounded-3xl text-xs sm:text-sm md:text-xl flex justify-between items-center gap-1 cursor-pointer'>Buy Tickets</a>
-            <div className="border border-white/10 bg-gray-700 rounded-full p-2.5 sm:p-3">
-              <HeartIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
+            <button
+              onClick={() => handleToggleFavourite(movie._id)}
+              className="border border-white/10 bg-gray-700 rounded-full p-2.5 sm:p-3 cursor-pointer"
+              aria-label={isFavourite(movie._id) ? 'Remove from favourites' : 'Add to favourites'}
+            >
+              <HeartIcon
+                className={`w-4 h-4 sm:w-5 sm:h-5 transition ${isFavourite(movie._id) ? 'text-primary fill-primary' : ''}`}
+              />
+            </button>
           </div>
         </div>
       </div>
