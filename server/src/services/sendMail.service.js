@@ -1,11 +1,13 @@
 import nodemailer from "nodemailer";
-import config from "../config/config.js";
+import dns from "dns";
+
+dns.setDefaultResultOrder("ipv4first");
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: config.EMAIL,
-        pass: config.EMAIL_PASSWORD,
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
     },
 });
 
