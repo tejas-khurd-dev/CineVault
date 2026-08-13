@@ -7,12 +7,12 @@ const Layout = () => {
   return (
     <>
       <Navbar/>
-      <div className="flex pt-22">
+      <div className='flex min-h-screen pt-16 md:pt-20'>
         <Sidebar />
 
-        <div className='flex-1 overflow-y-auto my-5 mx-5 no-scrollbar'>
+        <main className='flex-1 overflow-x-hidden px-4 py-4 sm:px-6 sm:py-6 lg:px-8'>
           <Outlet />
-        </div>
+        </main>
       </div>
     </>
   )

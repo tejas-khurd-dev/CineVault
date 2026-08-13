@@ -86,11 +86,11 @@ const Profile = () => {
   }
 
   return (
-    <div className='relative overflow-x-hidden min-h-[calc(100vh-85px)] w-full flex items-center justify-center px-4 sm:px-6 py-10'>
+    <div className='relative flex min-h-[calc(100dvh-4rem)] w-full items-center justify-center overflow-x-hidden px-4 py-6 sm:px-6 sm:py-10'>
       <BlurCircle top='0' left='10%' />
       <BlurCircle bottom='0' right='10%' />
 
-      <div className='w-full max-w-xs sm:max-w-sm md:max-w-md bg-primary/10 border border-primary/20 rounded-xl sm:rounded-2xl px-5 sm:px-8 py-8 sm:py-10 flex flex-col items-center text-center'>
+      <div className='flex w-full max-w-sm flex-col items-center rounded-2xl border border-primary/20 bg-primary/10 px-5 py-8 text-center shadow-[0_12px_40px_rgba(0,0,0,0.18)] sm:max-w-md sm:px-8 sm:py-10'>
 
         {/* Profile image */}
         <div className='relative'>
@@ -158,7 +158,7 @@ const Profile = () => {
             </div>
           ) : (
             <>
-              <p className='text-base sm:text-lg md:text-xl font-semibold break-all'>
+              <p className='max-w-full break-words text-base font-semibold sm:text-lg md:text-xl'>
                 {user.username}
               </p>
               <button
@@ -175,7 +175,7 @@ const Profile = () => {
         {/* Email */}
         <div className='flex items-center gap-2 mt-1.5 sm:mt-2 text-gray-400'>
           <MailIcon className='w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0' />
-          <p className='text-xs sm:text-sm md:text-base break-all'>
+          <p className='break-words text-xs sm:text-sm md:text-base'>
             {user.email}
           </p>
         </div>

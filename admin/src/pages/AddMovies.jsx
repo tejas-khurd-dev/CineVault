@@ -128,13 +128,13 @@ const AddMovies = () => {
         Add <span className='text-primary'>Movie</span>
       </h1>
 
-      <div className='mt-4 sm:mt-6 md:mt-8 bg-primary/10 border border-primary/20 rounded-md sm:rounded-lg p-4 sm:p-6 max-w-3xl'>
+      <div className='mt-4 w-full max-w-4xl rounded-xl border border-primary/20 bg-primary/10 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.18)] sm:mt-6 sm:p-6 md:mt-8'>
 
         {/* Image uploads */}
-        <div className='flex flex-col sm:flex-row gap-4 sm:gap-6'>
-          <div>
+        <div className='flex flex-col gap-4 sm:flex-row sm:gap-6'>
+          <div className='w-full sm:w-auto'>
             <p className='text-sm sm:text-base font-medium mb-2'>Poster Image <span className='text-red-500'>*</span></p>
-            <label className='block w-28 sm:w-32 md:w-36 aspect-[2/3] rounded-md sm:rounded-lg border border-dashed border-primary/40 bg-primary/5 cursor-pointer overflow-hidden relative hover:border-primary/70 transition'>
+            <label className='block aspect-[2/3] w-32 overflow-hidden rounded-lg border border-dashed border-primary/40 bg-primary/5 cursor-pointer transition hover:border-primary/70 sm:w-36'>
               <input type='file' accept='image/*' onChange={handlePosterChange} className='hidden' />
               {posterPreview ? (
                 <img src={posterPreview} alt='Poster preview' className='w-full h-full object-cover' />
@@ -147,9 +147,9 @@ const AddMovies = () => {
             </label>
           </div>
 
-          <div className='flex-1'>
+          <div className='w-full flex-1'>
             <p className='text-sm sm:text-base font-medium mb-2'>Backdrop Image <span className='text-red-500'>*</span></p>
-            <label className='block w-28 sm:w-32 md:w-36 aspect-[2/3] rounded-md sm:rounded-lg border border-dashed border-primary/40 bg-primary/5 cursor-pointer overflow-hidden relative hover:border-primary/70 transition'>
+            <label className='block aspect-[2/3] w-32 overflow-hidden rounded-lg border border-dashed border-primary/40 bg-primary/5 cursor-pointer transition hover:border-primary/70 sm:w-36'>
               <input type='file' accept='image/*' onChange={handleBackdropChange} className='hidden' />
               {backdropPreview ? (
                 <img src={backdropPreview} alt='Backdrop preview' className='w-full h-full object-cover' />
@@ -171,7 +171,7 @@ const AddMovies = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder='Enter movie title'
-            className='w-full sm:w-96 border border-primary/30 bg-primary/5 rounded-md px-3 py-1.5 sm:py-2 text-sm sm:text-base outline-none placeholder:text-gray-500 focus:border-primary/60'
+            className='w-full rounded-md border border-primary/30 bg-primary/5 px-3 py-1.5 text-sm outline-none placeholder:text-gray-500 focus:border-primary/60 sm:w-96 sm:py-2 sm:text-base'
           />
         </div>
 
@@ -183,7 +183,7 @@ const AddMovies = () => {
             onChange={(e) => setOverview(e.target.value)}
             placeholder='Enter movie overview'
             rows={3}
-            className='w-full border border-primary/30 bg-primary/5 rounded-md px-3 py-2 text-sm sm:text-base outline-none placeholder:text-gray-500 resize-none focus:border-primary/60'
+            className='w-full resize-none rounded-md border border-primary/30 bg-primary/5 px-3 py-2 text-sm outline-none placeholder:text-gray-500 focus:border-primary/60 sm:text-base'
           />
         </div>
 
@@ -213,7 +213,7 @@ const AddMovies = () => {
         </div>
 
         {/* Language + runtime */}
-        <div className='flex flex-wrap gap-4 sm:gap-6 mt-5 sm:mt-6'>
+        <div className='mt-5 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:gap-6'>
           <div>
             <p className='text-sm sm:text-base font-medium mb-2'>Original Language</p>
             <input
@@ -222,7 +222,7 @@ const AddMovies = () => {
               onChange={(e) => setOriginalLanguage(e.target.value)}
               placeholder='en'
               maxLength={5}
-              className='border border-primary/30 bg-primary/5 rounded-md px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm outline-none w-20 sm:w-24 placeholder:text-gray-500 focus:border-primary/60'
+              className='w-24 rounded-md border border-primary/30 bg-primary/5 px-2.5 py-1.5 text-xs outline-none placeholder:text-gray-500 focus:border-primary/60 sm:w-28 sm:px-3 sm:py-2 sm:text-sm'
             />
           </div>
 
@@ -240,7 +240,7 @@ const AddMovies = () => {
                 if (e.key === '-' || e.key === 'e' || e.key === '+') e.preventDefault()
               }}
               placeholder='150'
-              className='border border-primary/30 bg-primary/5 rounded-md px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm outline-none w-24 sm:w-28 placeholder:text-gray-500 focus:border-primary/60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+              className='w-28 rounded-md border border-primary/30 bg-primary/5 px-2.5 py-1.5 text-xs outline-none placeholder:text-gray-500 focus:border-primary/60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none sm:w-32 sm:px-3 sm:py-2 sm:text-sm'
             />
           </div>
         </div>
@@ -248,7 +248,7 @@ const AddMovies = () => {
         <button
           onClick={handleAddShow}
           disabled={loading}
-          className='mt-6 sm:mt-8 border border-primary/40 bg-primary px-6 sm:px-8 py-2 sm:py-2.5 rounded-md text-sm sm:text-base font-medium cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto'
+          className='mt-6 w-full rounded-md border border-primary/40 bg-primary px-6 py-2 text-sm font-medium cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 sm:mt-8 sm:w-auto sm:px-8 sm:py-2.5 sm:text-base'
         >
           {loading ? 'Adding...' : 'Add Movie'}
         </button>
@@ -262,18 +262,18 @@ const AddMovies = () => {
       ) : movies.length === 0 ? (
         <p className='text-sm text-gray-400'>No movies added yet.</p>
       ) : (
-        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5 md:gap-6'>
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 sm:gap-5 md:gap-6'>
           {movies.map((movie) => (
             <div
               key={movie._id}
-              className='bg-gray-800/60 border border-primary/10 hover:border-primary/30 transition rounded-xl sm:rounded-2xl px-2.5 sm:px-4 py-2.5 sm:py-3'
+              className='overflow-hidden rounded-2xl border border-primary/10 bg-gray-800/60 px-3 py-3 transition hover:border-primary/30'
             >
               <div className='relative'>
                 <img
                   onClick={() => goToMovieDetail(movie._id)}
                   src={movie.posterPath}
                   alt={movie.title}
-                  className='rounded-md sm:rounded-lg w-full h-40 sm:h-56 md:h-85 object-cover cursor-pointer shadow-[0_0_10px_rgba(0,0,0,0.5)]'
+                  className='h-56 w-full cursor-pointer rounded-lg object-cover shadow-[0_0_10px_rgba(0,0,0,0.5)] sm:h-64'
                 />
                 <button
                   onClick={(e) => onDeleteClick(e, movie)}
@@ -284,21 +284,21 @@ const AddMovies = () => {
                 </button>
               </div>
 
-              <p className='font-semibold mt-2.5 sm:mt-3 truncate text-xs sm:text-base'>{movie.title}</p>
+              <p className='mt-2.5 truncate text-xs font-semibold sm:mt-3 sm:text-base'>{movie.title}</p>
 
-              <p className='text-[10px] sm:text-sm text-gray-400 mt-1 mb-2.5 sm:mb-3 truncate'>
+              <p className='mt-1 mb-2.5 truncate text-[10px] text-gray-400 sm:mb-3 sm:text-sm'>
                 {movie.genres?.slice(0, 2).join(' | ')} • {movie.runtime} min
               </p>
 
-              <div className='flex justify-between items-center gap-2'>
+              <div className='flex items-center justify-between gap-2'>
                 <button
                   onClick={() => goToMovieDetail(movie._id)}
-                  className='bg-primary hover:bg-primary/90 transition px-3 py-1.5 rounded-2xl text-[10px] sm:text-sm font-medium cursor-pointer'
+                  className='rounded-full bg-primary px-3 py-1.5 text-[10px] font-medium cursor-pointer transition hover:bg-primary/90 sm:text-sm'
                 >
                   Manage
                 </button>
-                <p className='flex items-center gap-1 text-gray-400 text-[10px] sm:text-sm shrink-0'>
-                  <StarIcon className='text-primary fill-primary w-3 h-3 sm:w-4 sm:h-4'/>
+                <p className='flex shrink-0 items-center gap-1 text-[10px] text-gray-400 sm:text-sm'>
+                  <StarIcon className='h-3 w-3 text-primary fill-primary sm:h-4 sm:w-4'/>
                   {movie.voteAverage?.toFixed(1)}
                 </p>
               </div>

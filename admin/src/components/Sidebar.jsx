@@ -4,30 +4,30 @@ import { adminNavLinks } from '../constants/adminNavLinks.js'
 
 const AdminSidebar = () => {
   return (
-    <div className='hidden md:block w-60 border-r-2 border-r-gray-400/20 px-2 pb-5'>
-      <div className='flex flex-col gap-4'>
+    <aside className='sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 border-r border-r-gray-400/20 px-3 py-4 md:block md:top-20 md:h-[calc(100vh-5rem)]'>
+      <div className='flex h-full flex-col gap-3 overflow-y-auto pr-1 custom-scrollbar'>
         {adminNavLinks.map((link, index) => (
           <NavLink
             key={index}
             to={link.path}
             end={link.path === '/'}
             className={({ isActive }) =>
-              `relative flex items-center gap-3 w-full py-2.5 pl-10 first:mt-6 text-gray-400 transition ${
-                isActive ? 'bg-primary/15 text-primary rounded-xl' : 'hover:text-gray-200'
+              `relative flex w-full items-center gap-3 rounded-xl py-3 pl-5 text-sm text-gray-400 transition ${
+                isActive ? 'bg-primary/15 text-primary' : 'hover:bg-white/5 hover:text-gray-200'
               }`
             }
           >
             {({ isActive }) => (
               <>
-                <link.icon className='w-5 h-5' />
+                <link.icon className='h-5 w-5 shrink-0' />
                 <p>{link.name}</p>
-                <span className={`w-1.5 h-8 rounded-l-xl right-0 absolute ${isActive ? 'bg-primary' : ''}`} />
+                <span className={`absolute right-0 h-8 w-1.5 rounded-l-xl ${isActive ? 'bg-primary' : ''}`} />
               </>
             )}
           </NavLink>
         ))}
       </div>
-    </div>
+    </aside>
   )
 }
 

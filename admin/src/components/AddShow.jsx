@@ -54,15 +54,15 @@ const AddShow = ({ movieId }) => {
       <p className='text-sm sm:text-base md:text-lg font-medium mb-3 sm:mb-4'>Showtimes</p>
 
       {/* Add show form */}
-      <div className='bg-primary/10 border border-primary/20 rounded-md sm:rounded-lg p-4 sm:p-6 max-w-xl'>
-        <div className='flex flex-wrap gap-3 sm:gap-5'>
+      <div className='w-full max-w-xl rounded-xl border border-primary/20 bg-primary/10 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.18)] sm:p-6'>
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5'>
           <div>
             <p className='text-xs sm:text-sm font-medium mb-1.5'>Date <span className='text-red-500'>*</span></p>
             <input
               type='date'
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className='border border-primary/30 bg-primary/5 rounded-md px-2.5 py-1.5 sm:py-2 text-xs sm:text-sm outline-none focus:border-primary/60 [&::-webkit-calendar-picker-indicator]:invert'
+              className='w-full rounded-md border border-primary/30 bg-primary/5 px-2.5 py-1.5 text-xs outline-none focus:border-primary/60 [&::-webkit-calendar-picker-indicator]:invert sm:py-2 sm:text-sm'
             />
           </div>
 
@@ -72,13 +72,13 @@ const AddShow = ({ movieId }) => {
               type='time'
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className='border border-primary/30 bg-primary/5 rounded-md px-2.5 py-1.5 sm:py-2 text-xs sm:text-sm outline-none focus:border-primary/60 [&::-webkit-calendar-picker-indicator]:invert'
+              className='w-full rounded-md border border-primary/30 bg-primary/5 px-2.5 py-1.5 text-xs outline-none focus:border-primary/60 [&::-webkit-calendar-picker-indicator]:invert sm:py-2 sm:text-sm'
             />
           </div>
 
           <div>
             <p className='text-xs sm:text-sm font-medium mb-1.5'>Price <span className='text-red-500'>*</span></p>
-            <div className='inline-flex items-center gap-1 border border-primary/30 bg-primary/5 rounded-md px-2.5 py-1.5 sm:py-2 focus-within:border-primary/60'>
+            <div className='inline-flex w-full items-center gap-1 rounded-md border border-primary/30 bg-primary/5 px-2.5 py-1.5 focus-within:border-primary/60 sm:w-auto sm:py-2'>
               <span className='text-gray-400 text-xs sm:text-sm'>{currency}</span>
               <input
                 type='number'
@@ -92,7 +92,7 @@ const AddShow = ({ movieId }) => {
                   if (e.key === '-' || e.key === 'e' || e.key === '+') e.preventDefault()
                 }}
                 placeholder='0'
-                className='bg-transparent outline-none w-16 sm:w-20 text-xs sm:text-sm placeholder:text-gray-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+                className='w-full bg-transparent text-xs outline-none placeholder:text-gray-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none sm:w-20 sm:text-sm'
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ const AddShow = ({ movieId }) => {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className='mt-4 sm:mt-5 border border-primary/40 bg-primary px-5 sm:px-6 py-2 rounded-md text-sm sm:text-base font-medium cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto'
+          className='mt-4 w-full rounded-md border border-primary/40 bg-primary px-5 py-2 text-sm font-medium cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 sm:mt-5 sm:w-auto sm:px-6 sm:text-base'
         >
           {loading ? 'Adding...' : 'Add Show'}
         </button>

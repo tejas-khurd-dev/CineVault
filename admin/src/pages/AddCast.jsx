@@ -94,10 +94,10 @@ const AddCast = () => {
       <div className='bg-primary/10 border border-primary/20 rounded-md sm:rounded-lg p-4 sm:p-6 max-w-xl'>
         <p className='text-sm sm:text-base font-medium mb-4'>Add Cast Member</p>
 
-        <div className='flex flex-col xs:flex-row items-start gap-4 sm:gap-5'>
+        <div className='flex flex-col items-start gap-4 sm:flex-row sm:gap-5'>
           {/* Photo upload */}
           <div>
-            <label className='block w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-dashed border-primary/40 bg-primary/5 cursor-pointer overflow-hidden relative hover:border-primary/70 transition'>
+            <label className='block h-20 w-20 overflow-hidden rounded-full border border-dashed border-primary/40 bg-primary/5 cursor-pointer transition hover:border-primary/70 sm:h-24 sm:w-24'>
               <input type='file' accept='image/*' onChange={handleProfileChange} className='hidden' />
               {profilePreview ? (
                 <img src={profilePreview} alt='Cast preview' className='w-full h-full object-cover' />
@@ -148,13 +148,13 @@ const AddCast = () => {
       ) : casts.length === 0 ? (
         <p className='text-sm text-gray-400'>No cast members added yet.</p>
       ) : (
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-5'>
+        <div className='grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'>
           {casts.map((cast) => (
             <div
               key={cast._id}
-              className='relative rounded-md sm:rounded-lg overflow-hidden bg-primary/10 border border-primary/20'
+              className='relative overflow-hidden rounded-md border border-primary/20 bg-primary/10'
             >
-              <img src={cast.profilePath} alt={cast.name} className='w-full h-28 sm:h-36 object-cover' />
+              <img src={cast.profilePath} alt={cast.name} className='mx-auto my-2 h-24 w-24 rounded-full border-2 border-primary/20 object-cover' />
 
               <button
                 onClick={() => onDeleteCast(cast._id)}

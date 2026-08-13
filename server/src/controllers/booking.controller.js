@@ -165,7 +165,7 @@ export const handleVerifyPayment = async (req, res) => {
         booking.razorpayPaymentId = razorpay_payment_id;
         await booking.save();
 
-        await deleteExpiredBookings();
+        await deleteFailedBookings();
 
         await userPastBookingsModel.create({
             user: booking.user,
@@ -235,7 +235,7 @@ export const getMyBookings = async (req, res) => {
 };
 
 
-const deleteExpiredBookings = async () => {
+const deleteFailedBookings = async () => {
     try {
         const result = await bookingModel.deleteMany({
             isPaid: false,
@@ -268,6 +268,30 @@ export const getUserPastBookings = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Something went wrong while fetching past bookings",
+        });
+    }
+};
+
+export const getAllBookingsAdmin = async (req, res) => {
+    try {
+        const bookings = await bookingModel
+            .find({ isPaid: true })
+            .populate("user", "username email")
+            .populate({
+                path: "show",
+                populate: { path: "movie", select: "title" },
+            })
+            .sort({ createdAt: -1 });
+ 
+        return res.status(200).json({
+            success: true,
+            bookings,
+        });
+    } catch (error) {
+        console.error("Error fetching all bookings:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while fetching bookings",
         });
     }
 };

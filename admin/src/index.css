@@ -10,13 +10,18 @@
     font-family: "Outfit", sans-serif;
     scrollbar-width: thin;
     scrollbar-color: #811528 #1e1e1e;
+    -webkit-tap-highlight-color: transparent;
 }
+
 
 body{
     color: white;
-    background-color: #000000;
+    background-color: black;
     cursor: url("/cursor.png") 0 0, auto;
     overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 .no-scrollbar{
@@ -26,4 +31,9 @@ body{
 .custom-scrollbar {
   scrollbar-width: thin;           
   scrollbar-color: #811528 transparent; 
+}
+
+::selection {
+    background: rgba(248, 69, 101, 0.35);
+    color: #fff;
 }

@@ -46,7 +46,6 @@ export const handleAddCast = async (req, res) => {
             profileFileId: uploadResponse.fileId,
         });
 
-        console.log("NEW CAST:", newCast);
 
         return res.status(201).json({
             success: true,

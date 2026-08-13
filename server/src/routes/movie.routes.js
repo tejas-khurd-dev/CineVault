@@ -16,6 +16,6 @@ movieRouter.get("/", getAllMovies);
 
 movieRouter.get("/:movieId", getMovieById);
 
-movieRouter.delete("/delete/:moveiId", authUserMiddleware, adminOnlyMiddleware, handleDeleteMovie)
+movieRouter.delete("/delete/:movieId", authUserMiddleware, adminOnlyMiddleware, handleDeleteMovie)
 
 export default movieRouter;

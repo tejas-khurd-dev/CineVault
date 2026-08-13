@@ -10,36 +10,32 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [form, setForm] = useState({ email: "", password: "" })
   const navigate = useNavigate()
-  const { loading, handleLogin, handleLogout, user, error, setError, handleGoogleLogin } = useAuth()
+  const { loading, handleLogin, user, error, setError, handleGoogleLogin } = useAuth()
 
   const handleChange = (e) => {
-    if (error) setError("");
+    if (error) setError('')
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const loggedInUser = await handleLogin(form);
+    const loggedInUser = await handleLogin(form)
 
     if (loggedInUser) {
-      toast.success("Logged in successfully");
-      navigate("/", { replace: true });
+      toast.success('Logged in successfully')
+      navigate('/', { replace: true })
     }
-  };
-
- const handleGoogleCallback = async (response) => {
-  console.log("Google credential received:", !!response.credential);
-
-  const user = await handleGoogleLogin(response.credential);
-
-  console.log("User returned from handleGoogleLogin:", user);
-
-  if (user) {
-    toast.success("Google login successful");
-    navigate("/", { replace: true });
   }
-};
+
+  const handleGoogleCallback = async (response) => {
+    const user = await handleGoogleLogin(response.credential)
+
+    if (user) {
+      toast.success('Google login successful')
+      navigate('/', { replace: true })
+    }
+  }
 
 
   if (loading && !user) {
@@ -47,8 +43,8 @@ const Login = () => {
   }
 
   return (
-    <div className='flex items-center justify-center h-screen bg-black px-4'>
-      <div className='w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 py-8 text-center'>
+    <div className='flex min-h-dvh items-center justify-center px-4 py-6 sm:py-8'>
+      <div className='w-full max-w-md rounded-2xl border border-white/10 bg-white/5 px-5 py-7 text-center shadow-[0_16px_50px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:px-6 sm:py-8'>
         <h1 className='text-2xl font-bold'>Admin Sign In</h1>
         <p className='mt-2 text-sm text-gray-400'>Use your email and password to access the dashboard.</p>
 
@@ -110,19 +106,19 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="flex items-center gap-3 my-6">
-          <div className="h-px flex-1 bg-white/10" />
+        <div className='my-6 flex items-center gap-3'>
+          <div className='h-px flex-1 bg-white/10' />
 
-          <span className="text-xs text-muted">
+          <span className='text-xs text-gray-400'>
             OR
           </span>
 
-          <div className="h-px flex-1 bg-white/10" />
+          <div className='h-px flex-1 bg-white/10' />
         </div>
 
         {/* Google button */}
-        <div className="flex justify-center items-center">
-            <GoogleButton onSuccess={handleGoogleCallback} />
+        <div className='flex items-center justify-center'>
+          <GoogleButton onSuccess={handleGoogleCallback} />
         </div>
       </div>
     </div>

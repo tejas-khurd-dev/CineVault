@@ -7,6 +7,7 @@ import movieRouter from "./routes/movie.routes.js"
 import castRouter from "./routes/cast.routes.js"
 import showRouter from "./routes/show.routes.js"
 import bookingRouter from "./routes/booking.routes.js"
+import dashboardRouter from "./routes/dashboard.routes.js"
 
 
 const app = express()
@@ -32,5 +33,7 @@ app.use("/api/cast", castRouter)
 app.use("/api/show", showRouter)
 
 app.use("/api/book-show", bookingRouter)
+
+app.use("/api/dashboard", dashboardRouter)
 
 export default app

@@ -3,6 +3,8 @@ import movieModel from "../models/movie.model.js";
 import ImageKit from "imagekit";
 import showModel from "../models/show.model.js";
 import favouriteMovieListModel from "../models/favouriteMovieList.model.js";
+import bookingModel from "../models/booking.model.js";
+import userPastBookingsModel from "../models/userPastBookings.model.js";
 
 const imagekit = new ImageKit({
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
@@ -140,9 +142,9 @@ export const getMovieById = async (req, res) => {
 // done
 export const handleDeleteMovie = async (req, res) => {
     try {
-        const { moveiId } = req.params;
+        const { movieId } = req.params;
  
-        const movie = await movieModel.findById(moveiId);
+        const movie = await movieModel.findById(movieId);
  
         if (!movie) {
             return res.status(404).json({
@@ -152,7 +154,7 @@ export const handleDeleteMovie = async (req, res) => {
         }
  
 
-        const casts = await castModel.find({ movie: moveiId });
+        const casts = await castModel.find({ movie: movieId });
  
      
         for (const cast of casts) {
@@ -165,14 +167,32 @@ export const handleDeleteMovie = async (req, res) => {
                 );
             }
         }
-    
- 
-     
-        await castModel.deleteMany({ movie: moveiId });
 
-        await showModel.deleteMany({movie: moveiId})
+
+        const shows = await showModel.find({movie:movieId})
+
+        const showIds = shows.map((show) => show._id);
+
+        if (showIds.length > 0) {
+            await bookingModel.deleteMany({
+                show: { $in: showIds },
+            });
+        }  
+
+
+        if (showIds.length > 0) {
+            await userPastBookingsModel.deleteMany({
+                show: { $in: showIds },
+            });
+        }  
+
+
+     
+        await castModel.deleteMany({ movie: movieId });
+
+        await showModel.deleteMany({movie: movieId})
  
-        await favouriteMovieListModel.deleteMany({movie: moveiId})
+        await favouriteMovieListModel.deleteMany({movie: movieId})
   
         try {
             await imagekit.deleteFile(movie.posterFileId);
@@ -187,7 +207,7 @@ export const handleDeleteMovie = async (req, res) => {
         }
  
        
-        await movieModel.findByIdAndDelete(moveiId);
+        await movieModel.findByIdAndDelete(movieId);
  
         return res.status(200).json({
             success: true,

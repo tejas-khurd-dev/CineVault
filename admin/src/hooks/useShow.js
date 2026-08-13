@@ -9,7 +9,7 @@ export const useShow = () => {
     throw new Error("useShow must be used within ShowProvider");
   }
 
-  const { shows, setShows, loading, setLoading, error, setError } = context;
+  const { shows, setShows, loading, setLoading, error, setError, show, setShow } = context;
 
   const handleAddShow = async (movieId, { date, time, price }) => {
     setLoading(true);
@@ -34,7 +34,6 @@ export const useShow = () => {
     try {
       const data = await getAllShows();
       setShows(data.shows)
-      console.log(data);
       return data.shows;
     } catch (error) {
       const message = error?.response?.data?.message || error?.message || "Something went wrong";
