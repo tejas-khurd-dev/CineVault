@@ -15,10 +15,13 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: true,
-  credentials: true,
-}))
-
+    origin: [
+      "https://cinevault-tp.vercel.app",
+      "https://cinevault-admin-tp.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 
 app.get("/", (req,res)=>res.send("server is live"))
 
