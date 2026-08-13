@@ -74,9 +74,9 @@ const MovieDetails = () => {
 
       <div>
         {casts?.length > 0 && <h3 className='text-base sm:text-lg md:text-xl font-bold text-white/90 [word-spacing:2px] pt-10 sm:pt-16 md:pt-24 lg:pt-28'>Your Favourite Cast</h3>}
-        <div className='flex gap-4 sm:gap-6 md:gap-10 overflow-x-auto items-center no-scrollbar py-6 sm:py-8 md:py-12'>
+        <div className='flex gap-2 sm:gap-4 md:gap-8 overflow-x-auto items-center no-scrollbar py-6 sm:py-8 md:py-12'>
           {casts?.map((cast) => (
-            <div key={cast._id} className='flex flex-col items-center text-gray-400 font-medium space-y-2 sm:space-y-3 shrink-0'>
+            <div key={cast._id} className='flex flex-col items-center text-gray-400 font-medium space-y-2 sm:space-y-3 shrink-0 mx-5'>
               <img src={cast.profilePath} alt={cast.name} className='rounded-full border-2 border-white/10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-cover shadow-[0_0_20px_rgba(239,68,68,0.6)]' />
               <p className='mx-auto text-xs sm:text-sm md:text-base'>{cast.name}</p>
             </div>

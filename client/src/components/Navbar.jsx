@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div className='fixed inset-x-0 top-0 z-[100] px-4 sm:px-6 md:px-16 lg:px-36 pt-4'>
-      <div className='mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 md:border-0 bg-black/70 md:bg-black/10 px-4 sm:px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl'>
+      <div className='mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 md:border-gray-600/20 bg-black/70 md:bg-black/10 px-4 sm:px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl'>
         <Link to='/' className='shrink-0'>
           <img src={assets.logo} alt='logo' className='h-auto w-28 sm:w-36 md:w-44 lg:w-52' />
         </Link>
@@ -38,7 +38,6 @@ const Navbar = () => {
         </nav>
 
         <div className='relative flex items-center gap-3 sm:gap-4'>
-          <Search className='h-5 w-5 cursor-pointer md:h-7 md:w-7' />
 
           {!user ? (
             <button
