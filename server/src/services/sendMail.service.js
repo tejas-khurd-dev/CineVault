@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export const sendOTP = async (email, otp) => {
     try {
         await transporter.sendMail({
-            from: `"CineVault" <${config.EMAIL}>`,
+            from: `"CineVault" <${process.env.EMAIL}>`,
             to: email,
             subject: "Your CineVault verification code",
             text: `Your CineVault verification code is ${otp}. This code is valid for 5 minutes. If you did not request this code, please ignore this email.`,
@@ -192,7 +192,7 @@ export const sendBookingConfirmation = async ({
 }) => {
     try {
         await transporter.sendMail({
-            from: `"CineVault" <${config.EMAIL}>`,
+            from: `"CineVault" <${process.env.EMAIL}>`,
             to: email,
             subject: `Booking Confirmed - ${movieTitle} | CineVault`,
             text: `
