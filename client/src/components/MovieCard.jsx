@@ -8,8 +8,8 @@ const MovieCard = ({movie}) => {
     const navigate = useNavigate()
 
   return (
-    <div className='bg-gray-800 w-full max-w-62 sm:w-66 rounded-2xl px-4 py-2 m-1 sm:m-3'>
-        <img onClick={()=>{navigate(`/moviedetails/${movie._id}`); scroll(0,0);}} src={movie.posterPath} alt="" className='rounded-lg h-56 sm:h-65 w-full object-cover cursor-pointer mt-2 shadow-[0_0_10px_rgba(0,0,0,0.6)]' />
+    <div className='bg-gray-800 w-full max-w-[19rem] sm:max-w-[17rem] rounded-2xl px-4 py-2 shadow-lg shadow-black/20 transition hover:-translate-y-1'>
+        <img onClick={()=>{navigate(`/moviedetails/${movie._id}`); scroll(0,0);}} src={movie.posterPath} alt="" className='rounded-lg h-75 w-full object-cover cursor-pointer mt-2 shadow-[0_0_10px_rgba(0,0,0,0.6)]' />
         
         <p className='font-semibold mt-3 truncate'>{movie.title}</p>
 

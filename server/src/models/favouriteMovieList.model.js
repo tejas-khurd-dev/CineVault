@@ -4,19 +4,16 @@ const favouriteMovieListSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+            ref: "Users",
             required: true,
         },
 
         movie: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Movie",
+            ref: "Movies",
             required: true,
             unique: true
         },
-    },
-    {
-        _id: false,
     }
 );
 

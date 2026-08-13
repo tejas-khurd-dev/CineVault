@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
-import Loading from '../components/Loading'
-import BlurCircle from '../components/BlurCircle'
-import { useAuth } from '../hooks/useAuth'
-import { useBooking } from '../hooks/useBooking.js'
 import { useNavigate } from 'react-router-dom'
+import Loading from '../components/Loading.jsx'
+import BlurCircle from '../components/BlurCircle.jsx'
+import { useAuth } from '../hooks/useAuth.js'
+import { useBooking } from '../hooks/useBooking.js'
 
-// show.date/show.time are separate fields, not a combined datetime,
-// so we format them the same way SeatLayout does
 const formatTime = (time) => {
   const [hourStr, minute] = time.split(':')
   let hour = Number(hourStr)
@@ -20,20 +18,15 @@ const formatDate = (dateStr) => {
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-const MyBookings = () => {
+const PastBookings = () => {
   const currency = import.meta.env.VITE_CURRENCY
   const { user, loading: authLoading } = useAuth()
-  const { bookings, loading, handleGetMyBookings } = useBooking()
+  const { pastBookings, loading, handleGetPastBookings } = useBooking()
 
   const navigate = useNavigate()
 
-  const navigateToShow = (movieId, showDate) => {
-    const formatedDate = showDate.split("T")[0] 
-    navigate(`/seatlayout/${movieId}/${formatedDate}`)
-  }
-
   useEffect(() => {
-    if (user) handleGetMyBookings()
+    if (user) handleGetPastBookings()
   }, [user])
 
   if (authLoading) {
@@ -64,11 +57,11 @@ const MyBookings = () => {
     <div className='relative overflow-x-hidden pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 sm:px-8 md:px-16 lg:px-24 min-h-screen pb-8'>
       <BlurCircle top='50px' left='60px'/>
       <BlurCircle bottom='100px' right='20%'/>
-      <h1 className='text-base sm:text-lg md:text-xl font-bold text-gray-300 text-center sm:text-left'>My Bookings</h1>
+      <h1 className='text-base sm:text-lg md:text-xl font-bold text-gray-300 text-center sm:text-left'>Past Bookings</h1>
 
-      {bookings.length === 0 ? (
+      {pastBookings.length === 0 ? (
         <div className='flex flex-col items-center justify-center h-[60vh] gap-3'>
-          <p className='text-gray-400 text-sm sm:text-base'>You haven't booked any tickets yet.</p>
+          <p className='text-gray-400 text-sm sm:text-base'>No past bookings yet.</p>
           <button
             onClick={() => navigate('/movies')}
             className='border border-primary/40 bg-primary px-4 py-2 rounded-3xl text-sm sm:text-base'
@@ -78,14 +71,13 @@ const MyBookings = () => {
         </div>
       ) : (
         <div className='flex flex-col gap-4 sm:gap-0 h-[75vh] sm:h-[80vh] overflow-y-auto no-scrollbar mt-2 sm:mt-0'>
-          {bookings.map((booking) => (
+          {pastBookings.map((booking) => (
             <div key={booking._id} className='flex justify-center w-full'>
               <div className='flex flex-col sm:flex-row w-full sm:w-[90%] md:w-[85%] lg:w-[80%] my-4 sm:my-8 md:my-10 lg:my-12 gap-4 sm:gap-5 rounded-lg bg-primary/10 border border-primary px-4 sm:px-5 py-4 sm:py-5'>
                 <img
-                  onClick={() => booking.show?.movie?._id && navigateToShow(booking.show.movie._id, booking.show.date)}
                   src={booking.show?.movie?.posterPath}
                   alt=""
-                  className='w-28 sm:w-36 md:w-44 h-auto object-cover rounded mx-auto sm:mx-0 shrink-0 cursor-pointer'
+                  className='w-28 sm:w-36 md:w-44 h-auto object-cover rounded mx-auto sm:mx-0 shrink-0'
                 />
                 <div className='flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-between gap-4 sm:gap-2 w-full relative'>
                   <div className='flex flex-col gap-1.5 sm:gap-2 text-center sm:text-left'>
@@ -119,4 +111,4 @@ const MyBookings = () => {
   )
 }
 
-export default MyBookings
+export default PastBookings

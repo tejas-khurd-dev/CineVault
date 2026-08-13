@@ -6,15 +6,18 @@ import { AuthUserProvider } from './services/auth.user.context.jsx'
 import { MovieProvider } from './services/movie.context.jsx'
 import { CastProvider } from './services/cast.context.jsx'
 import { ShowProvider } from './services/show.context.jsx'
+import { BookingProvider } from './services/booking.context.jsx'
 
 createRoot(document.getElementById('root')).render(
   <AuthUserProvider>
     <MovieProvider>
       <CastProvider>
         <ShowProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <BookingProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </BookingProvider>
         </ShowProvider>
       </CastProvider>
     </MovieProvider>

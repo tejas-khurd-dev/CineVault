@@ -17,7 +17,7 @@ const Movies = () => {
   }
 
   return movies.length > 0 ? (
-    <div className='pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-35 pb-5 sm:pb-8 md:pb-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40'>
+    <div className='pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-40 pb-5 sm:pb-8 md:pb-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40'>
       <h1 className='text-base sm:text-lg md:text-xl font-bold text-gray-300 text-center sm:text-left'>Now Showing</h1>
       <BlurCircle top='18rem'/>
       <BlurCircle top='40rem' right='2rem'/>
@@ -27,7 +27,7 @@ const Movies = () => {
       </div>
     </div>
   ) : (
-    <div className='flex justify-center items-center px-4 sm:px-6 pt-20 sm:pt-24 md:pt-36 lg:pt-44 xl:pt-50 pb-5 h-screen text-center'>
+    <div className='flex justify-center items-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-36 lg:pt-44 xl:pt-48 pb-5 h-screen text-center'>
       <h3 className='text-base sm:text-lg md:text-xl font-bold text-gray-300'>No movies available right now</h3>
     </div>
   )

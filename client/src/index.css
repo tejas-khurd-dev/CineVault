@@ -17,6 +17,14 @@ body{
     background-color: #000000;
     cursor: url("/cursor.png") 0 0, auto;
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    touch-action: manipulation;
 }
 
 .no-scrollbar{
@@ -50,4 +58,3 @@ body{
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #a61d37;
 }
-

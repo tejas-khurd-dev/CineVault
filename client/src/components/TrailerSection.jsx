@@ -9,12 +9,12 @@ const TrailerSection = () => {
     const [currentTrailer, setCurrentTrailer] = useState(dummyTrailers[0])
   
     return (
-    <div className='relative flex flex-col justify-between w-full gap-4 mt-12 px-6 md:px-16 lg:px-24 xl:px-44'>
+    <div className='relative flex flex-col justify-between w-full gap-4 mt-12 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-44'>
         <h3 className='text-xl md:text-2xl text-white/90 font-medium mt-6'>Trailers</h3>
 
         <BlurCircle top='0' right='40px'/>
 
-        <div className="mx-auto mt-6 md:mt-10 w-full max-w-[960px] aspect-video rounded-2xl overflow-hidden border border-gray-400/15">
+        <div className="mx-auto mt-6 md:mt-10 w-full max-w-[960px] aspect-video rounded-2xl overflow-hidden border border-gray-400/15 bg-black">
           <ReactPlayer
             src={currentTrailer.videoUrl}
             controls={false}

@@ -25,7 +25,7 @@ const showSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-
+  seatsBooked: [{ type: String }],
   expireAt: {
     type: Date,
     required: true,

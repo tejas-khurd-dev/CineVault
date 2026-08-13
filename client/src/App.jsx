@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes,  Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Favourite from './pages/Favourite'
@@ -13,8 +13,8 @@ import NotFound from './pages/NotFound'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import VerifyOTP from './pages/VerifyOTP'
-import { useLocation } from 'react-router-dom'
 import Profile from './pages/Profile'
+import PastBookings from './pages/PastBookings'
 
 
 const App = () => {
@@ -51,6 +51,7 @@ const App = () => {
         <Route path='/seatlayout/:id/:date' element={<SeatLayout />} />
         <Route path='/my-bookings' element={<MyBookings />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/past-bookings' element={<PastBookings />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

@@ -5,18 +5,18 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='relative bg-[url("/upsideDownBg.jpg")] bg-cover bg-center h-screen pt-35 pb-5'>
+    <div className='relative bg-[url("/upsideDownBg.jpg")] bg-cover bg-center min-h-screen pt-24 sm:pt-32 md:pt-40 pb-10'>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      <div className="relative z-10 flex h-full items-center px-20">
+      <div className="relative z-10 flex min-h-[calc(100vh-6rem)] items-center px-4 sm:px-8 md:px-20">
         <div className="max-w-xl">
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
             Signal lost
           </p>
 
-          <h1 className="text-white text-8xl md:text-9xl font-bold mb-4">
+          <h1 className="text-white text-6xl sm:text-7xl md:text-9xl font-bold mb-4">
             404
           </h1>
 
@@ -34,7 +34,7 @@ const NotFound = () => {
               navigate("/");
               scrollTo(0, 0);
             }}
-            className="bg-primary text-white text-sm font-medium tracking-wide uppercase px-6 py-3 rounded"
+            className="bg-primary text-white text-sm font-medium tracking-wide uppercase px-6 py-3 rounded-full"
           >
             Back to safety
           </button>

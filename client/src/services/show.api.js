@@ -44,3 +44,13 @@ export async function deleteShow(showId) {
     throw error;
   }
 }
+
+export async function getShowById(showId) {
+    try {
+        const response = await api.get(`/one/${showId}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}

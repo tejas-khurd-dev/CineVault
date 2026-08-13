@@ -10,7 +10,7 @@ import { useUser } from '../hooks/useUser.js'
 const Profile = () => {
 
   const { user, loading, handleLogout } = useAuth()
-  const {handleUpdateUserInfo} = useUser()
+  const { handleUpdateUserInfo } = useUser()
   const navigate = useNavigate()
 
   const [isEditingUsername, setIsEditingUsername] = useState(false)
@@ -86,9 +86,9 @@ const Profile = () => {
   }
 
   return (
-    <div className='relative overflow-x-hidden min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-16'>
-      <BlurCircle top='5%' left='10%' />
-      <BlurCircle bottom='3%' right='10%' />
+    <div className='relative overflow-x-hidden min-h-[calc(100vh-85px)] w-full flex items-center justify-center px-4 sm:px-6 py-10'>
+      <BlurCircle top='0' left='-10%' />
+      <BlurCircle bottom='0' right='-10%' />
 
       <div className='w-full max-w-xs sm:max-w-sm md:max-w-md bg-primary/10 border border-primary/20 rounded-xl sm:rounded-2xl px-5 sm:px-8 py-8 sm:py-10 flex flex-col items-center text-center'>
 
@@ -179,6 +179,14 @@ const Profile = () => {
             {user.email}
           </p>
         </div>
+
+        {/* Past Bookings */}
+        <button
+          onClick={() => navigate('/past-bookings')}
+          className='mt-4 sm:mt-5 flex items-center justify-center gap-2 border border-primary/40 bg-primary/10 hover:bg-primary/20 transition px-5 sm:px-6 py-2 sm:py-2.5 rounded-3xl text-sm sm:text-base font-medium cursor-pointer w-full sm:w-auto'
+        >
+          View Past Bookings
+        </button>
 
         {/* Logout */}
         <button

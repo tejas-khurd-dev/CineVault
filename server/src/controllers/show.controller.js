@@ -31,13 +31,6 @@ export const handleAddShow = async (req, res) => {
  
         const showDateTime = new Date(`${date}T${time}`);
  
-        if (isNaN(showDateTime.getTime())) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid date or time",
-            });
-        }
- 
         const expireAt = new Date(showDateTime.getTime() + (Number(movie.runtime) + 2) * 60 * 1000);
  
         const newShow = await showModel.create({
@@ -119,4 +112,34 @@ export const getAllShows = async (req, res) => {
     .sort({ date: 1, time: 1 });
 
   return res.status(200).json({ success: true, shows });
+};
+
+
+export const getShowById = async (req, res) => {
+    try {
+        const { showId } = req.params;
+
+        const show = await showModel
+            .findById(showId)
+            .populate('movie');
+
+        if (!show) {
+            return res.status(404).json({
+                success: false,
+                message: "Show not found",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            show,
+        });
+    } catch (error) {
+        console.error("Error fetching show:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while fetching show",
+        });
+    }
 };

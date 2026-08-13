@@ -4,7 +4,7 @@ import config from "../config/config.js";
 import blackListModel from "../models/blackList.model.js";
 import otpModel from "../models/otp.model.js";
 import userModel from "../models/user.model.js";
-import sendOTP from "../services/sendMail.service.js";
+import {sendOTP} from "../services/sendMail.service.js";
 import crypto from "crypto";
 import { OAuth2Client } from "google-auth-library";
 
