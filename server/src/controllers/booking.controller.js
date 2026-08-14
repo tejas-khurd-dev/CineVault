@@ -177,32 +177,6 @@ export const handleVerifyPayment = async (req, res) => {
             razorpayPaymentId: booking.razorpayPaymentId,
         });
 
-        try {
-            const userId = req.user.id;
-
-            const user = await userModel.findById(userId);
-            const movie = await movieModel.findById(show.movie);
-
-            if (user && movie) {
-                await sendBookingConfirmation({
-                    email: user.email,
-                    bookingId: booking._id.toString(),
-                    movieTitle: movie.title,
-                    seats: booking.seats,
-                    date: show.date,
-                    time: show.time,
-                    amount: booking.amount,
-                });
-            } else {
-                console.error("Skipping booking confirmation email: user or movie not found", {
-                    userId,
-                    movieId: show.movie,
-                });
-            }
-        } catch (emailError) {
-            console.error("Error sending booking confirmation email:", emailError);
-        }
-
         return res.status(200).json({
             success: true,
             message: "Payment verified, booking confirmed",
