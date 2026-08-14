@@ -110,7 +110,7 @@ const SeatLayout = () => {
       seats: selectedSeats,
       user,
       onSuccess: () => {
-        navigate('/my-bookings')
+        navigate('/my-bookings', {replace:true})
         scroll(0, 0)
       },
     })
