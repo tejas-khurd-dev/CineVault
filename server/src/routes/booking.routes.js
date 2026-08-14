@@ -16,4 +16,5 @@ bookingRouter.get("/past-bookings", authUserMiddleware, getUserPastBookings);
 
 bookingRouter.get("/admin/all", authUserMiddleware, adminOnlyMiddleware, getAllBookingsAdmin);
 
+
 export default bookingRouter;

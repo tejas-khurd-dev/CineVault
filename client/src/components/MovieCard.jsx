@@ -8,7 +8,7 @@ const MovieCard = ({ movie }) => {
 
   const handleNavigate = () => {
     navigate(`/moviedetails/${movie._id}`)
-    scroll(0, 0)
+    scrollTo(0, 0)
   }
 
   return (
