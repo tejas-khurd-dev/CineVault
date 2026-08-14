@@ -158,13 +158,6 @@ const SeatLayout = () => {
           Select Your Seat
         </h2>
 
-        {/*
-          Everything below (screen graphic + seat grid) is wrapped in one
-          horizontally-scrollable container with a fixed min-width. On mobile
-          this means the layout stays IDENTICAL to desktop (same seat sizes,
-          same spacing, nothing shrinks or wraps) — narrow screens just scroll
-          sideways to see the full row, instead of squishing everything down.
-        */}
         <div className='mt-6 sm:mt-8 md:mt-10 w-full overflow-x-auto no-scrollbar'>
           <div className='min-w-[640px] flex flex-col items-center gap-1'>
             <img src={assets.screenImage} alt='' className='mx-auto w-full max-w-md' />

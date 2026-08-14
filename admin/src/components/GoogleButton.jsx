@@ -1,7 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const GoogleButton = ({ onSuccess }) => {
   const googleButtonRef = useRef(null);
+  const [width, setWidth] = useState(400);
+
+  useEffect(() => {
+    const container = googleButtonRef.current;
+    if (!container) return;
+
+    const updateWidth = () => {
+      const containerWidth = container.offsetWidth;
+      if (containerWidth > 0) {
+        setWidth(Math.min(containerWidth, 400));
+      }
+    };
+
+    updateWidth();
+
+    const resizeObserver = new ResizeObserver(updateWidth);
+    resizeObserver.observe(container);
+
+    return () => resizeObserver.disconnect();
+  }, []);
 
   useEffect(() => {
     const renderGoogleButton = () => {
@@ -27,20 +47,18 @@ const GoogleButton = ({ onSuccess }) => {
         {
           theme: "outline",
           size: "large",
-          width: 400,
+          width, 
           text: "continue_with",
           shape: "rectangular",
         }
       );
     };
 
-    // Google is already loaded
     if (window.google?.accounts?.id) {
       requestAnimationFrame(renderGoogleButton);
       return;
     }
 
-    // Google script is in index.html but hasn't loaded yet
     const checkGoogle = setInterval(() => {
       if (window.google?.accounts?.id) {
         clearInterval(checkGoogle);
@@ -51,9 +69,9 @@ const GoogleButton = ({ onSuccess }) => {
     return () => {
       clearInterval(checkGoogle);
     };
-  }, [onSuccess]);
+  }, [onSuccess, width]);
 
-  return <div ref={googleButtonRef}></div>;
+  return <div ref={googleButtonRef} className="w-full max-w-[400px]"></div>;
 };
 
 export default GoogleButton;
